@@ -1,0 +1,30 @@
+# WordPress core
+wp-admin/
+wp-includes/
+wp-login.php
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+license.txt
+readme.html
+
+# Config (sensitive)
+wp-config.php
+
+# Uploads (optional but recommended)
+wp-content/uploads/
+
+# Cache
+wp-content/cache/
+
+# System files
+.DS_Store
