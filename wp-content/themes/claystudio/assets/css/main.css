@@ -248,7 +248,7 @@ body {
 .site-footer {
   background: var(--primary-color);
   color: var(--white);
-  padding: 60px 0 20px;
+  padding: 64px 0 24px;
 }
 
 .footer-grid {
@@ -262,27 +262,45 @@ body {
 }
 .footer-col h4 {
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 3.2px;
 }
 
 .footer-col ul {
   list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 10px;
 }
 
 .footer-col a {
   color: var(--white);
   text-decoration: none;
   font-size: 14px;
-  line-height: 2.5;
+  line-height: 1.6;
 }
 
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-col p + p {
+  margin-top: 24px;
+}
 .footer-bottom {
-  text-align: center;
+  text-align: left;
   border-top: 1px solid var(--bg-light);
-  margin-top: 40px;
-  padding-top: 20px;
-  font-size: 12px;
+  margin-top: 36px;
+  padding-top: 32px;
+  font-size: 14px;
+}
+.footer-bot-container {
+  max-width: 1540px;
+}
+.text-underline {
+  text-decoration: underline;
 }
 
 /* Responsive */
