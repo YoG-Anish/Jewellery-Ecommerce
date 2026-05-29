@@ -7,6 +7,9 @@
   --text-dark: #2c343d;
   --white: #ffffff;
   --transition: all 0.3s ease;
+  --maroon: #5a1a1a; /* Darker maroon from your image */
+  --text-grey: #666;
+  --light-grey: #f4f4f4;
 
   /* Font  */
   --main-font: "Jost", sans-serif;
@@ -43,6 +46,12 @@ a {
   margin: 0 auto;
   padding: 0 20px;
 }
+.container-1600 {
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 
 .announcement-bar {
   background: var(--primary-color, #8f515e);
