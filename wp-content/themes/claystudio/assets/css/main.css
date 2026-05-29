@@ -179,6 +179,9 @@ a {
   color: inherit;
   position: relative;
 }
+.icon-link:hover {
+  color: var(--white);
+}
 
 .cart-count {
   position: absolute;
@@ -263,6 +266,7 @@ a {
 }
 .hero-content .description {
   margin-bottom: 50px;
+  font-size: 16px;
 }
 
 .btn {
@@ -276,7 +280,7 @@ a {
   transition: var(--transition);
 }
 
-.btn-primary {
+.btn-primary-hero {
   background: var(--primary-color);
   color: var(--white);
   border: 2px solid var(--primary-color);
@@ -293,11 +297,6 @@ a {
   border: 2px solid var(--white);
 }
 
-/* Container for the arrows */
-.hero-slider .splide__arrows {
-  /* Positioning arrows */
-}
-
 /* Base style for both arrows */
 .hero-slider .splide__arrow {
   background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
@@ -305,14 +304,6 @@ a {
   height: 50px;
   border-radius: 50%; /* Square look for luxury feel, or 50% for circles */
   transition: var(--transition);
-}
-
-/* Show arrows when hovering over the slider */
-.hero-slider:hover .splide__arrow {
-}
-
-/* Hover state for arrows */
-.hero-slider .splide__arrow:hover {
 }
 
 /* The actual arrow icon (SVG) */
