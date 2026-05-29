@@ -29,9 +29,12 @@ body {
   color: var(--text-dark);
   overflow-x: hidden;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .container {
-  max-width: 1400px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -46,7 +49,7 @@ body {
   overflow: hidden;
 }
 
-.splide__slide {
+#announcement-slider .splide__slide {
   width: auto !important;
   display: flex;
   align-items: center;
@@ -55,7 +58,7 @@ body {
 }
 
 /* Style for the Text Slides */
-.splide__slide:not(.dot) {
+#announcement-slider .splide__slide:not(.dot) {
   padding: 0 60px; /* Use padding for spacing text */
 }
 
@@ -76,7 +79,7 @@ body {
   width: 40px !important; /* Gives the dot its own consistent width */
 }
 /* Header */
-.site-header {
+/* .site-header {
   background: transparent;
   position: sticky;
   top: 0;
@@ -84,6 +87,36 @@ body {
 }
 .site-header:hover {
   background: var(--primary-color);
+} */
+/* Initial state on page load */
+.site-header {
+  background: transparent;
+  position: absolute;
+  /* Adjust this value to match the exact height of your announcement bar */
+  top: 36px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition:
+    background 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+/* Hover state remains active */
+.site-header:hover {
+  background: var(--primary-color);
+}
+
+/* Fixed to top with solid color when scrolling */
+.site-header.header-scrolled {
+  position: fixed;
+  top: 0;
+  background: var(--primary-color);
+}
+
+/* Smoothly slides out of view on scroll down */
+.site-header.header-hidden {
+  transform: translateY(-100%);
 }
 
 .header-container {
@@ -135,6 +168,7 @@ body {
 }
 
 /* Hero Section */
+
 .hero-split {
   position: relative;
   height: calc(100vh - 36px);
@@ -142,7 +176,6 @@ body {
   align-items: end;
   justify-content: center;
   color: var(--white);
-  margin-top: calc(var(--nav-height) * -1);
 }
 
 .hero-images {
@@ -154,6 +187,16 @@ body {
   display: flex;
   z-index: -1;
 }
+.hero-images::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(33, 43, 54, 0.3); /* Your requested overlay color */
+  z-index: 1; /* Sits between images and content */
+}
 
 .hero-img-left,
 .hero-img-right {
@@ -161,24 +204,31 @@ body {
   background-size: cover;
   background-position: center;
   filter: brightness(0.7);
+  z-index: 0;
 }
 
 .hero-content {
   text-align: center;
   max-width: 600px;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  z-index: 10;
 }
 
 .hero-content .sub-title {
-  letter-spacing: 0.3em;
-  margin-bottom: 10px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
   text-transform: uppercase;
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 40px;
   margin-bottom: 20px;
   font-weight: 400;
+  letter-spacing: 8px;
+}
+.hero-content .description {
+  margin-bottom: 50px;
 }
 
 .btn {
@@ -188,7 +238,7 @@ body {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.2em;
-  margin: 10px;
+  margin: 0 10px;
   transition: var(--transition);
 }
 
@@ -199,7 +249,7 @@ body {
 }
 
 .btn-outline {
-  border: 1px solid var(--white);
+  border: 2px solid var(--white);
   color: var(--white);
 }
 
@@ -208,46 +258,96 @@ body {
   color: var(--primary-color);
 }
 
-/* Collections Grid */
-.collections-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 50px;
-  margin-bottom: 50px;
+/* Container for the arrows */
+.hero-slider .splide__arrows {
+  /* Positioning arrows */
 }
 
-.collection-item {
-  position: relative;
-  overflow: hidden;
-  height: 350px;
-}
-
-.collection-item.large {
-  grid-column: span 2;
-  grid-row: span 2;
-  height: 720px;
-}
-
-.collection-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Base style for both arrows */
+.hero-slider .splide__arrow {
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Square look for luxury feel, or 50% for circles */
   transition: var(--transition);
 }
 
-.collection-item:hover img {
-  transform: scale(1.05);
+/* Show arrows when hovering over the slider */
+.hero-slider:hover .splide__arrow {
 }
 
-.collection-item .overlay {
+/* Hover state for arrows */
+.hero-slider .splide__arrow:hover {
+}
+
+/* The actual arrow icon (SVG) */
+.hero-slider .splide__arrow svg {
+  fill: var(--white);
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Specific positioning */
+.hero-slider .splide__arrow--prev {
+  left: 50px;
+}
+.hero-slider .splide__arrow--next {
+  right: 50px;
+}
+
+/* The container for the dots */
+.hero-slider .splide__pagination {
+  bottom: 40px; /* Move them up slightly from the bottom */
+  gap: 15px; /* Increased gap for a cleaner look */
+}
+
+/* Base style for the inactive "tracks" */
+.hero-slider .splide__pagination__page {
+  width: 50px; /* Standard width for all bars */
+  height: 2px; /* Thickness of the bar */
+  background: rgba(255, 255, 255, 0.25); /* Faint track background */
+  border-radius: 0; /* Square edges */
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden; /* Keeps the loader inside the bar */
+  transition: background 0.3s ease;
+}
+
+/* The "Timer" Loader inside the bar */
+.hero-slider .splide__pagination__page::after {
+  content: "";
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
+  height: 100%;
   width: 100%;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.3);
-  color: white;
+  background: var(--white);
+  transform: scaleX(0); /* Starts completely empty */
+  transform-origin: left; /* Fills from Left to Right */
+}
+
+/* Trigger the loader animation when the slide is active */
+.hero-slider .splide__pagination__page.is-active::after {
+  /* IMPORTANT: The 6s duration MUST match your autoplay interval in JS */
+  animation: pageLoader 6s linear forwards;
+}
+
+/* Reset scale on hover or focus to keep things clean */
+.hero-slider .splide__pagination__page:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Keyframes to animate the loader scale from 0 to 1 */
+@keyframes pageLoader {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 /* Footer */
