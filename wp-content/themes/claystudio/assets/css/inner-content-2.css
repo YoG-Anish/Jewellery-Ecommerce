@@ -343,3 +343,90 @@
   padding: 20px 0;
   background: var(--bg-light);
 }
+.bridal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.bridal-content-wrapper {
+  max-width: 399px;
+  overflow: hidden;
+  gap: 0;
+}
+
+.left-bridal-section .sub-heading {
+  max-width: 399px;
+  letter-spacing: 2.4px;
+  line-height: 2;
+  margin: 80px 0 8px;
+}
+.right-bridal-section .sub-heading {
+  letter-spacing: 2.4px;
+  line-height: 2;
+  margin: 20px 0 8px;
+}
+.left-bridal-section h2 {
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  letter-spacing: 6px;
+  line-height: 1.4;
+  margin-bottom: 50px;
+}
+.right-bridal-section h2 {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  letter-spacing: 4px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+.left-bridal-section img {
+  aspect-ratio: 1/1;
+  max-width: 399px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin-top: 80px;
+}
+.left-bridal-section .btn-primary {
+  margin: 66px 0 16px;
+}
+
+.right-bridal-section img {
+  aspect-ratio: 399/598.5;
+  max-width: 399px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.right-bridal-section p {
+  line-height: 1.8;
+}
+
+.right-bridal-section p + p {
+  margin: 20px 0;
+}
+
+/* Instagram posts   */
+.instagram-posts {
+  padding: 50px 0;
+}
+.insta-text-center {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.instagram-image-posts {
+  display: flex;
+  justify-content: center;
+  gap: 2.22px;
+  margin-top: 32px;
+}
+.instagram-image-posts img {
+  aspect-ratio: 1/1;
+  object-position: center;
+  object-fit: cover;
+  max-width: 220.22px;
+}
