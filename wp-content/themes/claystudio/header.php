@@ -30,7 +30,14 @@
     <header class="site-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/Sqaure_1.avif" alt="Gemini Clay Studio" /></a>
+                <a href="<?php echo esc_url( home_url() ); ?>">
+                    <?php 
+                    $header_logo = get_theme_mod('header_logo');
+                    $header_logo_url = $header_logo ? wp_get_attachment_url($header_logo) : '';
+                    $header_logo_alt = get_post_meta($header_logo, '_wp_attachment_image_alt', true);
+                    ?>
+                    <img src="<?php echo esc_url($header_logo_url); ?>" alt="<?php echo esc_attr($header_logo_alt); ?>" />
+                </a>
             </div>
 
             <nav class="main-nav">
