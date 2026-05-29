@@ -30,16 +30,17 @@
     <header class="site-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="/"><img src="./images/Sqaure_1.avif" alt="Gemini Clay Studio" /></a>
+                <a href="/"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/Sqaure_1.avif" alt="Gemini Clay Studio" /></a>
             </div>
 
             <nav class="main-nav">
-                <ul>
-                    <li><a href="/" class="active">Home</a></li>
-                    <li><a href="/collections">Shop</a></li>
-                    <li><a href="/pages/custom-bridal">Custom Bridal</a></li>
-                    <li><a href="/pages/about-us">About</a></li>
-                </ul>
+                <?php
+                wp_nav_menu(
+                    array(
+                        'theme_location' => 'header-menu',
+                    )
+                );
+                ?>
             </nav>
 
             <div class="header-icons">
