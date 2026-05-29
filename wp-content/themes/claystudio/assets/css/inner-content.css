@@ -168,8 +168,8 @@
   width: 100%;
   min-height: 550px; /* Adjust height as needed (e.g., 100vh for full screen) */
   display: flex;
-  align-items: center; /* Vertically center the text */
-  justify-content: center; /* Horizontally center the text */
+  align-items: flex-end;
+  justify-content: start;
   overflow: hidden; /* Hide any video overflow */
   padding: 60px 20px;
 }
@@ -195,6 +195,7 @@
 .bg-herovideo-section .container {
   z-index: 3; /* Higher than the video */
   color: #ffffff; /* Typically you want white text over a video */
+  width: 100%;
 }
 
 /* OPTIONAL: Add a dark overlay so the text is easier to read */
@@ -227,6 +228,7 @@
   opacity: 0.4;
 }
 .video-text .sub-heading {
+  color: #ffffff;
 }
 .video-text h2 {
   font-size: 38px;
@@ -254,6 +256,48 @@
   text-transform: uppercase;
   margin-top: 16px;
 }
+
+/* Scroll to Top Circle Indicator */
+.progress-wrap {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 200ms linear;
+  background: var(--bg-light);
+}
+
+.progress-wrap.active-progress {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.progress-wrap svg path {
+  fill: none;
+  stroke: #2d2d2d; /* Progress color */
+  stroke-width: 4;
+  box-sizing: border-box;
+  transition: all 200ms linear;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+
 /* Mobile Responsive */
 @media (max-width: 991px) {
   .content-wrapper {
