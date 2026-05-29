@@ -73,7 +73,6 @@ do_action('woocommerce_shop_loop_header'); ?>
 
 			woocommerce_product_loop_end();
 
-
 			/**
 			 * Hook: woocommerce_after_shop_loop.
 			 *
