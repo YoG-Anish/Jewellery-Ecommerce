@@ -17,6 +17,7 @@ function claystudio_theme_support() {
     add_theme_support( 'post-thumbnails' );
     //woocommerce
     add_theme_support( 'woocommerce' );
+    
 }
 add_action( 'after_setup_theme', 'claystudio_theme_support' );
 
