@@ -52,7 +52,6 @@ a {
   padding: 0 20px;
 }
 
-
 .announcement-bar {
   background: var(--primary-color, #8f515e);
   color: var(--white, #fff);
@@ -104,7 +103,7 @@ a {
 } */
 /* Initial state on page load */
 .site-header {
-  background: transparent;
+  background: var(--primary-color);
   position: absolute;
   /* Adjust this value to match the exact height of your announcement bar */
   top: 36px;
@@ -114,6 +113,9 @@ a {
   transition:
     background 0.3s ease-in-out,
     transform 0.3s ease-in-out;
+}
+.transparent-header {
+  background: transparent;
 }
 
 /* Hover state remains active */
@@ -162,7 +164,15 @@ a {
 .header-icons {
   display: flex;
   gap: 15px;
+  color: var(--heading-color);
+}
+
+.transparent-header .header-icons {
   color: var(--white);
+}
+.site-header.header-scrolled .header-icons,
+.site-header:hover .header-icons {
+  color: var(--heading-color);
 }
 
 .icon-link {
@@ -174,11 +184,21 @@ a {
   position: absolute;
   top: -8px;
   right: -10px;
-  background: var(--white);
-  color: var(--primary-color);
+  background: var(--heading-color);
+  color: var(--white);
   font-size: 10px;
   padding: 2px 6px;
   border-radius: 50%;
+}
+
+.transparent-header .cart-count {
+  background: var(--white);
+  color: var(--heading-color);
+}
+.site-header.header-scrolled .cart-count,
+.site-header:hover .cart-count {
+  background: var(--heading-color);
+  color: var(--white);
 }
 
 /* Hero Section */

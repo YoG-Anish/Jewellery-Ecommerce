@@ -429,4 +429,5 @@
   object-position: center;
   object-fit: cover;
   max-width: 220.22px;
+  width: auto;
 }
