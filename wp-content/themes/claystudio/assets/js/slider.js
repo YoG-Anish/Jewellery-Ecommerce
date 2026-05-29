@@ -12,4 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   splide.mount();
+
+  // --- TESTIMONIAL SLIDER ---
+  const testimonialSplide = new Splide("#testimonial-slider", {
+    type: "fade", // Smooth fade transition like the image implies
+    rewind: true,
+    speed: 800,
+    pagination: false, // No dots
+    arrows: true, // We are using our custom ones in the HTML
+    drag: true,
+  });
+
+  testimonialSplide.mount();
 });

@@ -227,3 +227,119 @@
     font-size: 24px;
   }
 }
+
+/* Testimonial Section   */
+
+.testimonial-slider-section {
+  background-color: var(--primary-color); /* The maroon background */
+  padding: 90px 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  min-height: 500px;
+}
+
+.testimonial-content {
+  flex: 1;
+  max-width: 500px;
+  padding-bottom: 80px; /* Space for the arrows below */
+}
+
+.testimonial-label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 32px;
+}
+
+.testimonial-quote {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 4px;
+  color: var(--bg-light);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.testimonial-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.testimonial-image img {
+  width: 100%;
+  max-width: 507px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Arrows Styling */
+.custom-arrows {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.custom-arrows .splide__arrow {
+  position: static !important;
+  transform: none !important;
+  width: 44px !important;
+  height: 44px !important;
+  background-color: var(--bg-light) !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.custom-arrows .splide__arrow svg {
+  stroke: #333; /* Dark arrow icon */
+}
+.custom-arrows .splide__arrow--prev svg {
+  transform: rotate(0deg);
+}
+.custom-arrows .splide__arrow--next svg {
+  transform: rotate(180deg);
+}
+
+.custom-arrows .splide__arrow:hover {
+  opacity: 0.8 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .testimonial-flex {
+    flex-direction: column-reverse; /* Image on top for mobile */
+    text-align: left;
+    min-height: auto;
+  }
+
+  .testimonial-content {
+    max-width: 100%;
+  }
+
+  .testimonial-quote {
+    font-size: 22px;
+  }
+}
+
+/* Bridal Section  */
+
+.bridal-section {
+  padding: 20px 0;
+  background: var(--bg-light);
+}
