@@ -247,7 +247,7 @@ a {
 .hero-content {
   text-align: center;
   max-width: 600px;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
   z-index: 10;
 }
 
@@ -265,7 +265,7 @@ a {
   letter-spacing: 8px;
 }
 .hero-content .description {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   font-size: 16px;
 }
 
@@ -276,7 +276,7 @@ a {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.2em;
-  margin: 0 10px;
+  margin: 10px;
   transition: var(--transition);
 }
 
