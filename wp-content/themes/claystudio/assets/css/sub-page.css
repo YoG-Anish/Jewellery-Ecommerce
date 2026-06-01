@@ -1,0 +1,439 @@
+/* Refund Policy  */
+.refund-content,
+.privacy-content {
+  padding: calc(var(--nav-height) + 5%) 0 10%;
+}
+
+.support-content h1,
+.privacy-content h1 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--heading-color);
+}
+.support-content h2 {
+  font-weight: strong;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+.support-content p {
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+.support-content .shipping-link {
+  text-decoration: underline;
+}
+.support-content p a,
+.privacy-content p a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Privacy Policy  */
+.privacy-content h1 {
+  padding-bottom: 3%;
+}
+.privacy-content h2 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--heading-color);
+  margin: 40px 0 8px;
+}
+.privacy-content h3 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--heading-color);
+  margin: 40px 0 8px;
+}
+.privacy-content p {
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+.last-updated .date {
+  color: #008000;
+}
+
+.privacy-content ul {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.privacy-content .privacy-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.privacy-content .privacy-table td,
+.privacy-content .privacy-table th {
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.privacy-content .privacy-table th {
+  font-weight: 700;
+  text-align: left;
+}
+/* About  */
+
+.about-page-section {
+  padding-top: calc(var(--nav-height) + 100px);
+}
+
+.about-page-section .image-grid {
+  height: 570px;
+}
+
+.about-page-section .image-bg {
+  aspect-ratio: 294 / 374;
+}
+.about-page-section .image-fg {
+  aspect-ratio: 294 / 522;
+}
+
+.btn-underline {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: 50px 0;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  letter-spacing: 0.2em;
+}
+.about-bridal-section {
+  padding: 100px 0;
+}
+.about-bridal-section .text-content-wrap {
+  margin: 0;
+}
+.about-bridal-section .text-content-wrap img {
+  aspect-ratio: 468 / 312;
+  object-position: center;
+  object-fit: cover;
+  max-width: 468px;
+  width: 100%;
+  margin-top: 80px;
+}
+.about-bridal-section .image-right-bride img {
+  aspect-ratio: 540 / 686;
+  object-position: center;
+  object-fit: cover;
+  max-width: 540px;
+  width: 100%;
+}
+.margin-b-0 {
+  margin-bottom: 10px;
+}
+.client-love-section {
+  padding: 100px 0;
+  background: var(--heading-color);
+}
+
+.client-love-section h2 {
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 48px;
+}
+/* Testimonial  */
+/* Container for Splide */
+@media (min-width: 1025px) {
+  .testimonial-wrapper-about .splide__list {
+    align-items: flex-start; /* This is the key line */
+  }
+  .review-card p {
+    margin: 0 0 32px;
+  }
+}
+.testimonial-wrapper-about {
+  width: 100%;
+  max-width: 900px; /* This controls the overall width of the 3-card grid */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* RESET: Remove your old li and .review-card max-widths */
+.testimonial-wrapper-about .splide__slide {
+  height: auto; /* Allow cards to grow based on content */
+  display: flex; /* Makes the review-card fill the height of the slide */
+}
+
+.review-card {
+  background-color: var(--card-pink);
+  padding: 40px;
+  width: 100%; /* Important: fill the space Splide gives it */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.review-card h2 {
+  color: var(--heading-color);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.review-card p {
+  color: var(--text-dark);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.free-delivery-section {
+  padding: 80px 0;
+}
+
+.free-delivery-section .sub-heading {
+  text-align: center;
+}
+.free-delivery-section h2 {
+  font-size: 30px;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+.free-delivery-section a {
+  margin: 0;
+}
+.free-delivery-section .container {
+  text-align: center;
+}
+.delivery-slider {
+  margin: 60px;
+}
+
+/* Custom Bridal page  */
+
+.bridal-video-hero {
+  position: relative;
+  margin-top: calc(var(--nav-height) + 60px);
+}
+
+.video-bg-container {
+  position: relative;
+  min-height: 550px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bridal-video {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.bridal-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.text-box {
+  text-align: center;
+  color: #8f515e;
+}
+
+.bridal-subtitle {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  letter-spacing: 0.2em;
+  line-height: 26px;
+  text-transform: uppercase;
+}
+
+.bridal-main-title {
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  font-size: 38px;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.bridal-footer-text {
+  margin-top: 16px;
+  line-height: 1.8;
+}
+
+.bg-gradient-pink {
+  padding-top: 100px;
+  background: linear-gradient(
+    0deg,
+    rgba(250, 240, 249, 1),
+    rgba(244, 242, 239, 0) 100%
+  );
+}
+.bg-gradient-pink p {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 16px;
+  color: #212b36;
+}
+
+.how-to-order {
+  padding: 100px 0;
+  background: rgba(250, 240, 249, 1);
+}
+.how-to-order-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+.bridegroom-img {
+  width: 100%;
+}
+.bridegroom-img img {
+  aspect-ratio: 540 / 686;
+  max-width: 540px;
+  width: 100%;
+}
+.bridegroom-content {
+  width: 100%;
+  max-width: 492px;
+  margin-left: auto;
+  margin-bottom: 48px;
+}
+
+.bridegroom-content .sub-heading {
+  letter-spacing: 0.2em;
+}
+
+.bridegroom-content h2 {
+  font-weight: 400;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: var(--heading-color);
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+.bridegroom-content ul {
+  list-style: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+.bridegroom-content p {
+  margin-top: 32px;
+}
+
+/* Tertimonial Bridal  */
+.bridal-testimonials {
+  padding: 50px 0;
+}
+/* Side-by-side Layout */
+.sophie-slide-flex {
+  display: flex;
+  background-color: #fff;
+}
+
+/* Left Text Column */
+.sophie-content-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.sophie-text-box {
+  padding: 16px 0;
+  max-width: 555px;
+}
+.sophie-quote {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  margin: 55.5px 0 0;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Right Image Column */
+.sophie-image-col {
+  flex: 1;
+  line-height: 0; /* Removes bottom gap in images */
+}
+
+.sophie-main-img {
+  width: 100%;
+  max-width: 507px;
+  object-fit: cover;
+  display: block;
+  aspect-ratio: 507 / 284;
+  object-position: center;
+  margin-left: auto;
+}
+.sophie-slider-wrapper .custom-arrows {
+  bottom: 0;
+}
+/* Styling Pagination Dots */
+#sophie-hero-carousel .splide__pagination {
+  bottom: -25px;
+}
+
+#sophie-hero-carousel .splide__pagination__page {
+  /* Set the small size here */
+  width: 6px;
+  height: 6px;
+
+  background: #e0e0e0;
+  margin: 0 4px; /* Space between dots */
+  opacity: 1; /* Ensures small dots remain visible */
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+#sophie-hero-carousel .splide__pagination__page.is-active {
+  background: #3b2314;
+  /* Prevents the dot from growing too large when active */
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .sophie-slide-flex {
+    flex-direction: column;
+  }
+  .sophie-content-col {
+    padding: 40px 20px;
+    order: 2; /* Text moves below image on mobile */
+  }
+  .sophie-image-col {
+    width: 100%;
+    order: 1;
+  }
+  .sophie-nav-group {
+    justify-content: center;
+  }
+}

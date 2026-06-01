@@ -1,27 +1,74 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var splide = new Splide(".hero-slider", {
-    type: "loop", // "fade" is elegant for high-end fashion/bridal
-    rewind: true,
-    speed: 1000, // Duration of the transition
-    autoplay: true, // Auto-play the slides
-    interval: 6000, // 6 seconds per slide
-    pauseOnHover: false,
-    arrows: true, // Show side arrows
-    pagination: true, // Show dots at the bottom
-    drag: true,
-  });
+  // HERO SLIDER
+  const heroSlider = document.querySelector(".hero-slider");
 
-  splide.mount();
+  if (heroSlider) {
+    new Splide(heroSlider, {
+      type: "loop",
+      rewind: true,
+      speed: 1000,
+      autoplay: true,
+      interval: 6000,
+      pauseOnHover: false,
+      arrows: true,
+      pagination: true,
+      drag: true,
+    }).mount();
+  }
 
-  // --- TESTIMONIAL SLIDER ---
-  const testimonialSplide = new Splide("#testimonial-slider", {
-    type: "fade", // Smooth fade transition like the image implies
-    rewind: true,
-    speed: 800,
-    pagination: false, // No dots
-    arrows: true, // We are using our custom ones in the HTML
-    drag: true,
-  });
+  // TESTIMONIAL SLIDER
+  const testimonialSlider = document.querySelector("#testimonial-slider");
 
-  testimonialSplide.mount();
+  if (testimonialSlider) {
+    new Splide(testimonialSlider, {
+      type: "fade",
+      rewind: true,
+      speed: 800,
+      pagination: false,
+      arrows: true,
+      drag: true,
+    }).mount();
+  }
+
+  // ABOUT TESTIMONIAL SLIDER
+  const aboutSlider = document.querySelector("#testimonial-slider-about");
+
+  if (aboutSlider) {
+    new Splide(aboutSlider, {
+      type: "slide",
+      gap: "30px",
+      arrows: false,
+      pagination: false,
+      perPage: 3,
+      drag: false,
+
+      breakpoints: {
+        1024: {
+          perPage: 2,
+          drag: true,
+          arrows: true,
+        },
+        768: {
+          perPage: 1,
+          drag: true,
+        },
+      },
+    }).mount();
+  }
+
+  // SOPHIE HERO CAROUSEL
+  const sophieCarousel = document.querySelector("#sophie-hero-carousel");
+
+  if (sophieCarousel) {
+    new Splide(sophieCarousel, {
+      type: "fade",
+      rewind: true,
+      speed: 1000,
+      interval: 5000,
+      autoplay: true,
+      pauseOnHover: true,
+      arrows: true,
+      pagination: true,
+    }).mount();
+  }
 });
