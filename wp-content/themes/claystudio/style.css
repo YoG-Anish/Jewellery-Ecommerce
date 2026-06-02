@@ -6,3 +6,47 @@
     Author URI: https://claystudio.com
     Version: 1.0
 */
+
+/* Container for quantity */
+.quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    width: fit-content;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Style the buttons */
+.quantity button.plus, 
+.quantity button.minus {
+    background: #f4f4f4;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+.quantity button:hover {
+    background: #e0e0e0;
+}
+
+/* Style the actual number input */
+.quantity .qty {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    /* Hide the default browser arrows */
+    -moz-appearance: textfield;
+}
+
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

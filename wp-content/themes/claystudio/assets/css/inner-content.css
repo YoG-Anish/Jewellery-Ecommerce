@@ -67,9 +67,248 @@
   transform: translateY(0px);
 }
 
-/* Overview Section  */
+/* About Section  */
 
-.overview-section {
-  padding-top: 90px;
-  padding-bottom: 90px;
+.about-section {
+  padding: 90px 0;
+  overflow: hidden;
+}
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+}
+
+/* Image Layout */
+.image-grid {
+  flex: 1;
+  position: relative;
+  height: 342px;
+}
+
+.image-bg {
+  width: 294px;
+  margin-left: auto;
+  z-index: 1;
+  aspect-ratio: 1 / 1;
+  top: 0;
+  right: 0;
+}
+
+.image-fg {
+  position: absolute;
+  width: 294px;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  aspect-ratio: 1/1;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Text Styling */
+.text-content {
+  flex: 1;
+}
+.text-content-wrap {
+  max-width: 444px;
+  margin: 0 auto;
+}
+.sub-heading {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #999999;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.text-content h2 {
+  font-size: 30px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 6px;
+  margin-bottom: 16px;
+  max-width: 444px;
+}
+
+.text-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+}
+.text-content p + p {
+  margin-top: 10px;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--bg-light);
+  padding: 17px 32px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin: 48px 0;
+  transition: opacity 0.3s;
+}
+
+.btn-shop:hover {
+  opacity: 0.9;
+}
+/* 1. Set the section to relative so children can be absolute */
+.bg-herovideo-section {
+  position: relative;
+  width: 100%;
+  min-height: 550px; /* Adjust height as needed (e.g., 100vh for full screen) */
+  display: flex;
+  align-items: flex-end;
+  justify-content: start;
+  overflow: hidden; /* Hide any video overflow */
+  padding: 60px 20px;
+}
+
+/* 2. Position the video container to fill the entire section */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Sit behind the text */
+}
+
+/* 3. Make the video fill the container without distorting */
+.hero-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes it act like a background-image */
+}
+
+/* 4. Ensure the text container stays on top of the video */
+.bg-herovideo-section .container {
+  z-index: 3; /* Higher than the video */
+  color: #ffffff; /* Typically you want white text over a video */
+  width: 100%;
+}
+
+/* OPTIONAL: Add a dark overlay so the text is easier to read */
+.bg-herovideo-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Adjust 0.3 to make it darker or lighter */
+  z-index: 2;
+}
+
+/* Adjust text z-index if using the overlay */
+.video-text {
+  position: relative;
+  z-index: 3;
+}
+/* / */
+.bg-herovideo-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 100%);
+  opacity: 0.4;
+}
+.video-text .sub-heading {
+  color: #ffffff;
+}
+.video-text h2 {
+  font-size: 38px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 6px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.video-text p {
+  max-width: 672px;
+  margin-bottom: 16px;
+}
+.btn-white {
+  display: inline-block;
+  background: var(--bg-light);
+  color: var(--heading-color);
+  padding: 17px 32px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  transition: opacity 0.3s;
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+/* Scroll to Top Circle Indicator */
+.progress-wrap {
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: block;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 200ms linear;
+  background: var(--bg-light);
+}
+
+.progress-wrap.active-progress {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.progress-wrap svg path {
+  fill: none;
+  stroke: #2d2d2d; /* Progress color */
+  stroke-width: 4;
+  box-sizing: border-box;
+  transition: all 200ms linear;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  .image-grid {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 40px;
+  }
+  .text-content h1 {
+    font-size: 32px;
+  }
 }

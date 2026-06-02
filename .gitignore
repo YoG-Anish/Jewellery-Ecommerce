@@ -28,3 +28,5 @@ wp-content/cache/
 
 # System files
 .DS_Store
+
+wp-content/ai1wm-backups/*

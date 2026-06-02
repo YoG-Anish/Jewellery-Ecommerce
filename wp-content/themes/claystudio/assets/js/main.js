@@ -46,6 +46,42 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     announcementSplide.mount(window.splide.Extensions);
   }
+  // Go to TOp
+  const progressPath = document.querySelector(".progress-wrap path");
+  const pathLength = progressPath.getTotalLength();
+
+  progressPath.style.transition = progressPath.style.WebkitTransition = "none";
+  progressPath.style.strokeDasharray = pathLength + " " + pathLength;
+  progressPath.style.strokeDashoffset = pathLength;
+  progressPath.getBoundingClientRect();
+  progressPath.style.transition = progressPath.style.WebkitTransition =
+    "stroke-dashoffset 10ms linear";
+
+  const updateProgress = function () {
+    const scroll = window.scrollY;
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = pathLength - (scroll * pathLength) / height;
+    progressPath.style.strokeDashoffset = progress;
+  };
+
+  updateProgress();
+  window.addEventListener("scroll", updateProgress);
+
+  const offset = 150;
+  const progressWrap = document.querySelector(".progress-wrap");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > offset) {
+      progressWrap.classList.add("active-progress");
+    } else {
+      progressWrap.classList.remove("active-progress");
+    }
+  });
+
+  progressWrap.addEventListener("click", function (event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 });
 
 // --- 3. HEADER SCROLL LOGIC ---
@@ -72,3 +108,35 @@ window.addEventListener("scroll", function () {
 
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
+
+/* === 1. Quantity Plus/Minus Buttons Code === */
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('plus') || e.target.classList.contains('minus')) {
+        const qtyInput = e.target.parentElement.querySelector('.qty');
+        if (!qtyInput) return;
+
+        let val = parseFloat(qtyInput.value);
+        let max = parseFloat(qtyInput.getAttribute('max'));
+        let min = parseFloat(qtyInput.getAttribute('min'));
+        let step = parseFloat(qtyInput.getAttribute('step'));
+
+        if (e.target.classList.contains('plus')) {
+            if (max && (max <= val)) {
+                qtyInput.value = max;
+            } else {
+                qtyInput.value = val + step;
+            }
+        } else {
+            if (min && (min >= val)) {
+                qtyInput.value = min;
+            } else if (val > 0) {
+                qtyInput.value = val - step;
+            }
+        }
+        
+        // Trigger change so WooCommerce knows to update
+        qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+});
+
+
