@@ -452,3 +452,16 @@ a {
     height: 400px;
   }
 }
+
+/* Force the split layout for your blocks */
+.splide__slide .wp-block-columns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.splide__slide .hero-img-left { 
+    /* Style your images here */
+    background-size: cover;
+    height: 100vh; 
+}
+

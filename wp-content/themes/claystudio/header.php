@@ -28,7 +28,8 @@
         </section>
     </div>
 
-    <header class="site-header transparent-header">
+
+    <header class="site-header  <?php echo (is_front_page() || is_home()) ? 'transparent-header' : ''; ?>">
         <div class="container header-container">
             <div class="logo">
                 <a href="<?php echo esc_url(home_url()); ?>">

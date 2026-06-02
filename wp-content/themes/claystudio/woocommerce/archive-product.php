@@ -38,7 +38,7 @@ do_action('woocommerce_before_main_content');
  */
 do_action('woocommerce_shop_loop_header'); ?>
 
-<div class="shop-layout">
+<div class="container">
 	<aside class="shop-filters-wrapper">
 		<?php echo do_shortcode('[fe_widget]'); ?>
 	</aside>
