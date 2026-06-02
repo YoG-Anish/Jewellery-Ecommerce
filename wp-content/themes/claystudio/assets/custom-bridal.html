@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./css/inner-content.css" />
     <link rel="stylesheet" href="./css/inner-content-2.css" />
     <link rel="stylesheet" href="./css/sub-page.css" />
+    <link rel="stylesheet" href="./css/sub-page-2.css" />
 
     <!-- Splide JS -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
@@ -308,6 +309,170 @@
           </section>
         </div>
       </section>
+
+      <section class="bridal-contact-form">
+        <div class="container">
+          <span class="sub-heading">Get Ready to Say I Do</span>
+          <h2>Start Your Custom Bridal Journey Here</h2>
+
+          <form class="bridal-form">
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="name" class="field-label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder=" "
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="email" class="field-label">Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder=" "
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="date" class="field-label">Wedding Date</label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  placeholder=" "
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="prefer" class="field-label">Do you prefer?</label>
+                <select id="prefer" name="prefer" required>
+                  <option value="" selected disabled></option>
+                  <option value="gold">Gold</option>
+                  <option value="silver">Silver</option>
+                  <option value="rose-gold">Rose Gold</option>
+                </select>
+              </div>
+
+              <div class="field-group full-width">
+                <label for="enquiry" class="field-label">
+                  What does your enquiry relate to?
+                </label>
+
+                <select id="enquiry" name="enquiry" required>
+                  <option value="" selected disabled></option>
+                  <option value="bridal">Bridal</option>
+                  <option value="evening">Evening Wear</option>
+                  <option value="accessories">Accessories</option>
+                </select>
+              </div>
+
+              <div class="field-group full-width">
+                <label for="where" class="field-label">
+                  Where did you hear about us?
+                </label>
+
+                <select id="where" name="where" required>
+                  <option value="" selected disabled></option>
+                  <option value="ig">Instagram</option>
+                  <option value="fb">Facebook</option>
+                  <option value="word">Word of Mouth</option>
+                  <option value="google">Google</option>
+                </select>
+              </div>
+
+              <div class="field-group full-width">
+                <label for="description" class="field-label">
+                  Please leave any further information here
+                </label>
+
+                <textarea
+                  id="description"
+                  name="description"
+                  rows="5"
+                  placeholder=" "
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="button-container">
+              <button type="submit" class="btn-primary">
+                Send <span>&rsaquo;</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="chiffon-section">
+        <div class="container">
+          <div class="chiffon-section-grid">
+            <!-- Main Banner Section -->
+            <div class="right-chiffon-video">
+              <video
+                class="product-video__banner"
+                id="Mp4template--22713238716737__product_with_image_fzCyhV"
+                loop
+                muted
+                playsinline
+                autoplay
+              >
+                <source
+                  src="https://cdn.shopify.com/videos/c/o/v/812f0970efc84d6c8939e1dfacb192b1.mov"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="video-overlay-content">
+                <span class="sub-top">Fancy Something else?</span>
+                <h3>Handmade Chiffon Bows</h3>
+                <a href="#" class="btn btn-outline">Shop now</a>
+              </div>
+            </div>
+
+            <!-- Right Product Grid -->
+            <div class="left-chiffon-grid">
+              <div class="grid-item">
+                <span class="sold-out">Sold Out</span>
+                <img
+                  src="https://geminiclaystudio.com/cdn/shop/files/il_fullxfull.5098980887_bpi6.jpg?v=1716560291&width=360"
+                  alt="Jewelry"
+                />
+              </div>
+              <div class="grid-item">
+                <img
+                  src="https://geminiclaystudio.com/cdn/shop/files/il_fullxfull.5581624138_2tmb.jpg?v=1716560083&width=360"
+                  alt="Jewelry"
+                />
+              </div>
+              <div class="grid-item">
+                <img
+                  src="https://geminiclaystudio.com/cdn/shop/files/il_fullxfull.5113654614_tah0.jpg?v=1716560016&width=360"
+                  alt="Jewelry"
+                />
+              </div>
+              <div class="grid-item">
+                <img
+                  src="https://geminiclaystudio.com/cdn/shop/files/il_fullxfull.5825059024_5e0k.jpg?v=1716560219&width=360"
+                  alt="Jewelry"
+                />
+              </div>
+              <div class="grid-item">
+                <span class="sold-out">Sold Out</span>
+                <img
+                  src="https://geminiclaystudio.com/cdn/shop/files/K32-B.jpg?v=1732881457&width=360"
+                  alt="Jewelry"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -367,5 +532,6 @@
     <script src="./js/main.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/tab.js"></script>
+    <script src="./js/inner.js"></script>
   </body>
 </html>

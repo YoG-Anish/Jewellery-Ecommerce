@@ -1,0 +1,582 @@
+.bridal-contact-form {
+  padding: 60px 0;
+}
+
+.bridal-contact-form .sub-heading {
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+.bridal-contact-form h2 {
+  margin-bottom: 48px;
+  color: var(--heading-color);
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.bridal-form {
+  max-width: 825px;
+  margin: 0 auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.field-group {
+  position: relative;
+}
+
+.field-label {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  z-index: 1;
+  padding: 0 8px;
+  background: #fff;
+  color: rgba(42, 0, 2, 0.6);
+  font-size: 14px;
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+/* Inputs */
+input,
+select {
+  height: 48px;
+}
+
+textarea {
+  height: 100px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dee2e6;
+  border-radius: 0;
+  background: transparent;
+  box-sizing: border-box;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--heading-color);
+  box-shadow: 0 0 0 1px var(--heading-color);
+}
+
+/* Floating label state */
+.field-group.active .field-label,
+.field-group:has(input:focus) .field-label,
+.field-group:has(select:focus) .field-label,
+.field-group:has(textarea:focus) .field-label {
+  top: -10px;
+  font-size: 12px;
+}
+
+select {
+  appearance: none;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button-container button {
+  margin-top: 16px;
+  margin-bottom: 0;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 12px 32px;
+}
+
+.button-container button span {
+  font-size: 16px;
+}
+
+/* chiffon section  */
+.chiffon-section {
+  padding: 80px 0;
+}
+.chiffon-section-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr; /* Featured side is slightly wider */
+  align-items: start;
+  align-items: end;
+}
+
+/* Featured Video Banner Styles */
+.right-chiffon-video {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  max-width: 540px;
+  aspect-ratio: 540 / 496;
+}
+
+.product-video__banner {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Overlay Text Styles */
+.video-overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #8c5364; /* Dusty rose color from the image */
+  background-color: rgba(250, 240, 249, 0.6); /* Slight lightening effect */
+  padding: 40px;
+}
+
+.sub-top {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+}
+
+.video-overlay-content h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 12px 35px;
+  border: 2px solid #8c5364;
+  color: #8c5364;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  transition: 0.3s;
+  font-weight: 500;
+  margin: 0;
+}
+
+.btn-outline:hover {
+  background-color: #8c5364;
+  color: white;
+  border-color: #8c5364;
+}
+
+/* Product Sub-Grid Styles */
+.left-chiffon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 images wide */
+  gap: 24px;
+}
+
+.grid-item {
+  position: relative;
+  aspect-ratio: 160 / 208; /* Slightly vertical rectangle */
+  max-width: 160px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sold Out Badge */
+.sold-out {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: white;
+  color: #d84a29; /* Orange-red color */
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 768px) {
+  .chiffon-section-grid {
+    grid-template-columns: 1fr;
+  }
+  .left-chiffon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Contact-page  */
+.questions-section {
+  margin-top: var(--nav-height);
+}
+.questions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+.questions-left-image img {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+.questions-right-content {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+}
+.questions-right-content h2 {
+  text-transform: uppercase;
+  font-size: 38px;
+  font-weight: 400;
+  color: var(--heading-color);
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+}
+.e-contact-section {
+  border-bottom: 1px solid #9999997c;
+}
+.e-contact-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.contact-e {
+  display: flex;
+  max-width: 480px;
+  width: 100%;
+  gap: 24px;
+  padding: 0 15px;
+}
+.contact-e i {
+  font-size: 24px;
+  color: rgb(143, 81, 94);
+}
+.link-title .web-title {
+  display: block;
+  line-height: 1.4;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  margin: 0 0 8px;
+}
+.link-title a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 14px;
+  color: #999999;
+}
+
+@media (max-width: 768px) {
+  .e-contact-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .contact-e {
+    max-width: 300px;
+  }
+}
+
+/* Question contact section  */
+.question-contact-section {
+  padding: 80px 0;
+}
+.contact-heading {
+  text-align: center;
+}
+.contact-heading h2 {
+  line-height: 1.4;
+  font-weight: 400;
+  font-size: 30px;
+  color: var(--heading-color);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.contact-heading p {
+  color: rgb(44 52 61 / 70%);
+  margin: 0 0 48px;
+}
+.question-contact-section form {
+  max-width: 100%;
+}
+.terms-and-privacy-policy {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.terms-and-privacy-policy a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.terms-and-privacy-policy a:hover {
+  opacity: 1;
+}
+/* faq Section  */
+.faq-section {
+  padding: 80px 0 120px;
+  background-image: url(https://geminiclaystudio.com/cdn/shop/files/TEST_TEXT_2.png?v=1716564616);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.accordion-container {
+  max-width: 100%;
+  margin: 0 auto;
+  border-top: 1px solid #ebebeb8e;
+}
+.accordion-item {
+  border-bottom: 1px solid #ebebeb8e;
+}
+.accordion-header {
+  width: 100%;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+
+  /* Typography */
+  color: var(--heading-color);
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+/* The Plus/Minus Icon using CSS pseudo-elements */
+.icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.icon::before,
+.icon::after {
+  content: "";
+  position: absolute;
+  background-color: var(--heading-color);
+  transition: transform 0.3s ease;
+}
+
+/* Horizontal line (always visible) */
+.icon::before {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+}
+
+/* Vertical line (visible when closed, hidden when open) */
+.icon::after {
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+}
+
+/* State when accordion is active/open */
+.accordion-item.active .icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.3s ease-out,
+    padding 0.3s ease;
+  padding: 0 8px;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 200px; /* Adjust based on content size */
+  padding-bottom: 25px;
+}
+
+.accordion-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 1;
+  color: var(--text-color);
+}
+
+/* Collection grid  */
+/* .collection-grid-section {
+  background-color: #00000040;
+  z-index: 1;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1540px;
+}
+.grid-item {
+  max-width: 100%;
+}
+.collection-grid-item {
+  margin: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 40px;
+} */
+
+.collection-grid-section {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Background Image Handling */
+.background-overlay-collection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.background-overlay-collection img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.background-overlay-collection img.active {
+  opacity: 1;
+}
+
+/* Dark tint over images */
+.dark-tint {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: #00000040;
+  z-index: 2;
+}
+
+/* Grid Layout */
+.collection-grid {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  height: 100%;
+  max-height: 380px;
+  max-width: 1540px;
+  margin: 0 auto;
+}
+
+.collection-grid-item {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  margin: 15px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Hover Effect: Mauve Color and Hide Border */
+.collection-grid-item:hover {
+  background-color: var(--); /* The Mauve color */
+}
+
+.collection-grid-item:hover .border-frame {
+  opacity: 0;
+}
+
+/* Text and Button Styles */
+.collection-content {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Essential so the button can go to the bottom */
+  width: 100%;
+  align-items: flex-start;
+}
+
+.collection-title {
+  font-size: 20px;
+  letter-spacing: 0.2em;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.collection-view-btn {
+  display: inline-block;
+  margin-top: auto; /* Pushes to bottom */
+  background: white;
+  color: black;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.collection-grid-item:hover .collection-view-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
