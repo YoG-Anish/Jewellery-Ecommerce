@@ -444,3 +444,9 @@ a {
     display: none;
   }
 }
+
+@media (min-width: 992px) {
+  .d-mobile-only {
+    display: none;
+  }
+}

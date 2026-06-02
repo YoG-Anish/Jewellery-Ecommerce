@@ -1,0 +1,185 @@
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -350px; /* Hidden by default */
+  width: 350px;
+  height: 100%;
+  background: var(--heading-color);
+  z-index: 10000;
+  transition: transform 0.3s ease-in-out;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* When sidebar is active */
+.sidebar.active {
+  transform: translateX(350px);
+}
+
+/* Dark Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Close Button & Links */
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.close-sidebar {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: rgb(159, 105, 117);
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav ul li {
+  border-bottom: 1px solid rgb(159, 105, 117);
+}
+
+.sidebar-nav ul li a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 500;
+  display: block;
+  padding: 14px 8px;
+}
+
+/* Prevent scrolling when menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+@media (min-width: 992px) {
+  .sidebar,
+  .sidebar-overlay,
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+}
+
+/* Search Popup Base */
+.search-popup {
+  position: fixed;
+  top: -100%; /* Start off-screen */
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  z-index: 100000; /* Above everything */
+  transition: top 0.4s ease-in-out;
+  padding: 24px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.search-popup.active {
+  top: 0;
+}
+
+.search-popup-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header inside Popup */
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #999;
+  font-weight: 500;
+}
+
+.close-search {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Form Styling */
+.search-form {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  font-size: 24px;
+  color: #2c343d;
+  outline: none;
+  padding: 4px 0;
+  font-family: inherit;
+}
+
+.search-submit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Quick Links Styling */
+.search-quick-links {
+  margin-top: 24px;
+}
+
+.search-quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.search-quick-links li {
+  margin-bottom: 8px;
+}
+
+.search-quick-links a {
+  text-decoration: none;
+  display: block;
+  color: #333;
+  font-size: 14px;
+}
+
+.search-quick-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Reuse your existing overlay to darken background */
+.search-active body {
+  overflow: hidden;
+}
