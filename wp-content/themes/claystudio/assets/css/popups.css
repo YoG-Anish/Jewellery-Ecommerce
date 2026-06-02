@@ -183,3 +183,6 @@ body.no-scroll {
 .search-active body {
   overflow: hidden;
 }
+.search-input:focus {
+  box-shadow: none;
+}
