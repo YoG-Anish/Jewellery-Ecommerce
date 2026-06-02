@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
       arrows: true,
       pagination: true,
       drag: true,
+      breakpoints: {
+        991: {
+          arrows: false,
+        },
+      },
     }).mount();
   }
 

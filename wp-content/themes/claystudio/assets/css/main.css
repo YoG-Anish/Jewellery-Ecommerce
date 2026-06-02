@@ -437,18 +437,10 @@ a {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+
+@media (max-width: 991px) {
   .main-nav,
   .d-mobile-none {
     display: none;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  .collections-grid {
-    grid-template-columns: 1fr;
-  }
-  .collection-item.large {
-    height: 400px;
   }
 }
