@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php wp_title('|', true, 'right'); ?></title>
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+    <!-- Announcement Bar -->
     <div class="announcement-bar">
         <section
             id="announcement-slider"
@@ -27,11 +28,11 @@
         </section>
     </div>
 
-    <header class="site-header">
+    <header class="site-header transparent-header">
         <div class="container header-container">
             <div class="logo">
-                <a href="<?php echo esc_url( home_url() ); ?>">
-                    <?php 
+                <a href="<?php echo esc_url(home_url()); ?>">
+                    <?php
                     $header_logo = get_theme_mod('header_logo');
                     $header_logo_url = $header_logo ? wp_get_attachment_url($header_logo) : '';
                     $header_logo_alt = get_post_meta($header_logo, '_wp_attachment_image_alt', true);
@@ -42,11 +43,9 @@
 
             <nav class="main-nav">
                 <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'header-menu',
-                    )
-                );
+                wp_nav_menu(array(
+                    'theme_location' => 'header-menu',
+                ));
                 ?>
             </nav>
 
