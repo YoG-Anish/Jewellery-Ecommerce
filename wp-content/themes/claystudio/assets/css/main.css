@@ -160,6 +160,30 @@ a {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 2px;
+
+  position: relative;
+  padding-bottom: 4px;
+}
+/* Create the underline line */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white);
+  transition: width 0.3s ease-in-out;
+}
+
+/* Hover effect: Slide width to 100% */
+.main-nav a:hover::after {
+  width: 100%;
+}
+
+/* Active state: Keep width at 100% */
+.main-nav a.active::after {
+  width: 100%;
 }
 
 .header-icons {
@@ -448,5 +472,68 @@ a {
 @media (min-width: 992px) {
   .d-mobile-only {
     display: none;
+  }
+}
+
+/* 404 Page Specific Styles */
+
+.error-page-wrapper {
+  background-color: var(--bg-light);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-height) + 100px) 0 100px;
+}
+
+.error-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-subtitle {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.error-content h1 {
+  font-family: var(--main-font);
+  font-size: 48px;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.error-content .description {
+  font-size: 16px;
+  color: var(--text-grey);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Specific Dark Outline Button for the 404 Light Background */
+.btn-outline-dark {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.btn-outline-dark:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  border: 2px solid var(--primary-color);
+}
+
+@media (max-width: 768px) {
+  .error-content h1 {
+    font-size: 32px;
+  }
+  .error-actions .btn {
+    display: block;
+    margin: 10px auto;
   }
 }
