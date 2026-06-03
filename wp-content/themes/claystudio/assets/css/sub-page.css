@@ -438,12 +438,9 @@
     justify-content: center;
   }
 }
+
 @media (max-width: 767px) {
   .how-to-order-grid {
     grid-template-columns: 1fr;
-  }
-
-  .bridegroom-content {
-    margin: 0;
   }
 }
