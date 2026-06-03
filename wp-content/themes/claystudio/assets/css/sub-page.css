@@ -443,4 +443,13 @@
   .how-to-order-grid {
     grid-template-columns: 1fr;
   }
+  .bridegroom-content {
+    margin-left: 0;
+  }
+  .how-to-order {
+    padding: 60px 0;
+  }
+  .video-bg-container {
+    min-height: 400px;
+  }
 }
