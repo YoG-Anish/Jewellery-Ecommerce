@@ -123,6 +123,7 @@ select {
   grid-template-columns: 1.05fr 1fr; /* Featured side is slightly wider */
   align-items: start;
   align-items: end;
+  gap: 30px;
 }
 
 /* Featured Video Banner Styles */
@@ -204,7 +205,6 @@ select {
 .grid-item {
   position: relative;
   aspect-ratio: 160 / 208; /* Slightly vertical rectangle */
-  max-width: 160px;
 }
 
 .grid-item img {
@@ -232,11 +232,15 @@ select {
   .chiffon-section-grid {
     grid-template-columns: 1fr;
   }
+  .right-chiffon-video {
+    max-width: 100%;
+  }
+}
+@media (max-width: 480px) {
   .left-chiffon-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 /* Contact-page  */
 .questions-section {
   margin-top: var(--nav-height);
@@ -244,7 +248,6 @@ select {
 .questions-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
   gap: 30px;
 }
 .questions-left-image img {
@@ -301,7 +304,11 @@ select {
   font-size: 14px;
   color: #999999;
 }
-
+@media (max-width: 991px) {
+  .questions-grid {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 768px) {
   .e-contact-wrapper {
     flex-direction: column;
@@ -490,7 +497,7 @@ select {
   top: 0;
   left: 0;
   width: 100%;
-  max-height: 380px;
+  height: 100%;
   object-fit: cover;
   overflow: hidden;
   object-position: center;

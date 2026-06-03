@@ -537,3 +537,28 @@ a {
     margin: 10px auto;
   }
 }
+.footer-col ul li a {
+  position: relative; /* CRITICAL: This contains the ::after line */
+  display: inline-block; /* Ensures the width matches the text precisely */
+}
+/* Create the underline line */
+.footer-col ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--white);
+  transition: width 0.3s ease-in-out;
+}
+
+/* Hover effect: Slide width to 100% */
+.footer-col ul li a:hover::after {
+  width: 100%;
+}
+
+/* Active state: Keep width at 100% */
+.footer-col ul li a.active::after {
+  width: 100%;
+}
