@@ -453,3 +453,12 @@
     min-height: 400px;
   }
 }
+
+@media (max-width: 767px) {
+  .privacy-content h2,
+  .client-love-section h2,
+  .free-delivery-section h2,
+  .bridegroom-content h2 {
+    font-size: 24px;
+  }
+}
