@@ -37,58 +37,59 @@ do_action('woocommerce_before_main_content');
  * @hooked woocommerce_product_taxonomy_archive_header - 10
  */
 do_action('woocommerce_shop_loop_header'); ?>
+<section class="shop-section-woo">
+	<div class="container">
+		<aside class="shop-filters-wrapper">
+			<?php echo do_shortcode('[fe_widget]'); ?>
+		</aside>
 
-<div class="container">
-	<aside class="shop-filters-wrapper">
-		<?php echo do_shortcode('[fe_widget]'); ?>
-	</aside>
+		<div class="product-loop-wrapper">
+			<?php
+			if (woocommerce_product_loop()) {
 
-	<div class="product-loop-wrapper">
-		<?php
-		if (woocommerce_product_loop()) {
+				/**
+				 * Hook: woocommerce_before_shop_loop.
+				 *
+				 * @hooked woocommerce_output_all_notices - 10
+				 * @hooked woocommerce_result_count - 20
+				 * @hooked woocommerce_catalog_ordering - 30
+				 */
+				do_action('woocommerce_before_shop_loop');
 
-			/**
-			 * Hook: woocommerce_before_shop_loop.
-			 *
-			 * @hooked woocommerce_output_all_notices - 10
-			 * @hooked woocommerce_result_count - 20
-			 * @hooked woocommerce_catalog_ordering - 30
-			 */
-			do_action('woocommerce_before_shop_loop');
+				woocommerce_product_loop_start();
 
-			woocommerce_product_loop_start();
+				if (wc_get_loop_prop('total')) {
+					while (have_posts()) {
+						the_post();
 
-			if (wc_get_loop_prop('total')) {
-				while (have_posts()) {
-					the_post();
+						/**
+						 * Hook: woocommerce_shop_loop.
+						 */
+						do_action('woocommerce_shop_loop');
 
-					/**
-					 * Hook: woocommerce_shop_loop.
-					 */
-					do_action('woocommerce_shop_loop');
-
-					wc_get_template_part('content', 'product');
+						wc_get_template_part('content', 'product');
+					}
 				}
-			}
 
-			woocommerce_product_loop_end();
+				woocommerce_product_loop_end();
 
-			/**
-			 * Hook: woocommerce_after_shop_loop.
-			 *
-			 * @hooked woocommerce_pagination - 10
-			 */
-			do_action('woocommerce_after_shop_loop');
-		} else {
-			/**
-			 * Hook: woocommerce_no_products_found.
-			 *
-			 * @hooked wc_no_products_found - 10
-			 */
-			do_action('woocommerce_no_products_found');
-		} ?>
+				/**
+				 * Hook: woocommerce_after_shop_loop.
+				 *
+				 * @hooked woocommerce_pagination - 10
+				 */
+				do_action('woocommerce_after_shop_loop');
+			} else {
+				/**
+				 * Hook: woocommerce_no_products_found.
+				 *
+				 * @hooked wc_no_products_found - 10
+				 */
+				do_action('woocommerce_no_products_found');
+			} ?>
+		</div>
 	</div>
-</div>
+</section>
 <?php
 /**
  * Hook: woocommerce_after_main_content.
