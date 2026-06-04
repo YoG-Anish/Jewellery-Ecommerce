@@ -146,13 +146,13 @@ mark.count {
 /* 3. The Title - Create a physical gap */
 .woocommerce-loop-category__title {
     margin: 0 !important;
-    padding: 16px 0px !important; /* This padding creates a "safe zone" */
+    padding: 16px 0px 0px!important; /* This padding creates a "safe zone" */
     background: #fff; /* Matches background to ensure no overlap visual glitches */
     position: relative;
     z-index: 2;
 }
 
 /* 4. The Hover Effect */
-.product-category:hover img {
-    transform: scale(1.1);
+.product-category img:hover {
+    transform: scale(1.05);
 }
