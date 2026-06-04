@@ -51,108 +51,346 @@
   margin: 0;
 }
 
-
 /* Aditional Css */
 
 .shop-all-collection-section {
-	padding: calc(var(--nav-height) + 30px) 0 30px;
+  padding: calc(var(--nav-height) + 30px) 0 30px;
 }
 
-li.product-category.product a img{
-    aspect-ratio: 1 / 1 !important;
+li.product-category.product a img {
+  aspect-ratio: 1 / 1 !important;
 }
 
 /* 1. Base Setup: Remove default WooCommerce floats and CLEARFIX */
 .woocommerce ul.products.columns-4 {
-    display: grid !important;
-    gap: 30px;
+  display: grid !important;
+  gap: 30px;
 }
 
 /* FIX: Hide the "ghost" spaces created by ::before and ::after */
 .woocommerce ul.products.columns-4::before,
 .woocommerce ul.products.columns-4::after {
-    display: none !important;
-    content: none !important;
+  display: none !important;
+  content: none !important;
 }
 
 /* Reset item widths */
 .woocommerce ul.products.columns-4 li.product {
-    width: 100% !important;
-    margin: 0 !important;
-    float: none !important;
-    clear: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+  clear: none !important;
 }
 
 /* 2. Desktop: 3 Columns */
 @media (min-width: 1025px) {
-    .woocommerce ul.products.columns-4 {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .woocommerce ul.products.columns-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* 3. Tablet: 2 Columns */
 @media (min-width: 768px) and (max-width: 1024px) {
-    .woocommerce ul.products.columns-4 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .woocommerce ul.products.columns-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* 4. Mobile: 1 Column */
 @media (max-width: 767px) {
-    .woocommerce ul.products.columns-4 {
-        grid-template-columns: 1fr;
-    }
+  .woocommerce ul.products.columns-4 {
+    grid-template-columns: 1fr;
+  }
 }
 .woocommerce-loop-category__title {
-    text-align: center;
-    padding: 16px 0 0 !important;
-	text-transform:uppercase;
-	font-size:20px !important;
-	font-weight:400;
-	letter-spacing:0.2em;
+  text-align: center;
+  padding: 16px 0 0 !important;
+  text-transform: uppercase;
+  font-size: 20px !important;
+  font-weight: 400;
+  letter-spacing: 0.2em;
 }
 mark.count {
-	background: transparent !important;
+  background: transparent !important;
 }
 .woocommerce-loop-category__title:hover,
 .woocommerce-loop-category__title:hover mark.count {
-	color: var(--primary-color)
+  color: var(--primary-color);
 }
 /* 1. Container Setup */
 .product-category a {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Standard safety */
-    text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Standard safety */
+  text-decoration: none;
 }
 
 /* 2. The Image - Locked Box */
 .product-category img {
-    width: 100%;
-    /* This locks the box size so it CANNOT grow bottom */
-    aspect-ratio: 1 / 1; 
-    object-fit: cover;
-    
-    /* This clips the zoom strictly to the 1:1 box */
-    clip-path: inset(0); 
-    
-    /* Ensure it scales from the dead center */
-    transform-origin: center center;
-    
-    transition: transform 0.5s ease;
-    display: block;
+  width: 100%;
+  /* This locks the box size so it CANNOT grow bottom */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  /* This clips the zoom strictly to the 1:1 box */
+  clip-path: inset(0);
+
+  /* Ensure it scales from the dead center */
+  transform-origin: center center;
+
+  transition: transform 0.5s ease;
+  display: block;
 }
 
 /* 3. The Title - Create a physical gap */
 .woocommerce-loop-category__title {
-    margin: 0 !important;
-    padding: 16px 0px 0px!important; /* This padding creates a "safe zone" */
-    background: #fff; /* Matches background to ensure no overlap visual glitches */
-    position: relative;
-    z-index: 2;
+  margin: 0 !important;
+  padding: 16px 0px 0px !important; /* This padding creates a "safe zone" */
+  background: #fff; /* Matches background to ensure no overlap visual glitches */
+  position: relative;
+  z-index: 2;
 }
 
 /* 4. The Hover Effect */
 .product-category img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
+}
+/*  */
+
+.shop-header {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--heading-color);
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  margin: 40px 0 60px;
+}
+/*  */
+/* Product columns;  */
+
+/*  */
+/*  */
+/* 1. Switcher Button Styling */
+.shop-layout-controls {
+  display: flex;
+  justify-content: flex-start; /* Align to the right */
+  margin-bottom: 10px;
+}
+
+.grid-switcher {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.switch-btn {
+  background: #fff;
+  border: none;
+  border-right: 1px solid #ddd;
+  padding: 12px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.switch-btn:last-child {
+  border-right: none;
+}
+
+.switch-btn.active {
+  background: #f9f9f9;
+}
+
+.switch-btn .lines {
+  display: flex;
+  gap: 3px;
+}
+
+.switch-btn .lines span {
+  width: 2px;
+  height: 14px;
+  background: #999;
+  display: block;
+}
+
+.switch-btn.active .lines span {
+  background: #222; /* High contrast for active state */
+}
+
+/* 2. The Grid System */
+.woocommerce ul.products {
+  display: grid !important;
+  gap: 30px;
+  margin: 0 0 3em 0 !important;
+  transition: opacity 0.3s ease;
+}
+
+/* Reset WooCommerce default floats/widths */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after {
+  content: none !important;
+}
+
+.woocommerce ul.products li.product {
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+  clear: none !important; /* Fixes WooCommerce "first" class clearing */
+}
+
+/* Desktop Column Classes */
+@media (min-width: 1025px) {
+  .products.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .products.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .products.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet: Force 2 columns */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .shop-layout-controls {
+    display: none;
+  }
+}
+
+/* Mobile: Force 1 column */
+@media (max-width: 767px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+  .shop-layout-controls {
+    display: none;
+  }
+}
+
+/* 3. Image Hover & Consistency */
+.woocommerce ul.products li.product a img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.woocommerce ul.products li.product:hover a img {
+  transform: scale(1.05);
+}
+
+.woocommerce ul.products li.product a {
+  display: block;
+  overflow: hidden;
+}
+
+.woocommerce .woocommerce-ordering {
+  margin: 0 0 1.5em;
+}
+
+.woocommerce .woocommerce-result-count {
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* Hidden Side Bar  */
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    gap: 30px;
+  }
+  .shop-filters-wrapper {
+    flex: 0 0 25%; /* Sidebar takes 25% width */
+    max-width: 250px;
+  }
+  .product-loop-wrapper {
+    flex: 1;
+  }
+  /* Hide the mobile toggle button on desktop if needed */
+  .wpc-filters-open-button-container {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  section.shop-section-woo .container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile Sidebar Layout (Under 767px) */
+@media (max-width: 767px) {
+  .shop-filters-wrapper {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    z-index: 9999;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    padding: 20px;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .shop-filters-wrapper.active {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .close-sidebar {
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .product-loop-wrapper {
+    width: 100%;
+  }
+}
+
+/* Hide mobile controls on desktop */
+@media (min-width: 768px) {
+  .mobile-filter-trigger,
+  .mobile-sidebar-header,
+  .sidebar-overlay {
+    display: none;
+  }
 }
