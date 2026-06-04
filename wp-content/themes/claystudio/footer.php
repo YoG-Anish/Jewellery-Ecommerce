@@ -113,12 +113,14 @@
 
         <div class="search-quick-links">
             <span class="search-label">MAIN MENU</span>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./shop.html">Shop</a></li>
-                <li><a href="./custom-bridal.html">Custom Bridal</a></li>
-                <li><a href="./about.html">About</a></li>
-            </ul>
+            <?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'search-menu',
+
+                )
+            );
+            ?>
         </div>
     </div>
 </div>
