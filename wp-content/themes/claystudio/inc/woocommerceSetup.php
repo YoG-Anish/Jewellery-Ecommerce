@@ -62,4 +62,4 @@ function get_new_arrivals_products() {
         return '<p>No new arrivals at this time.</p>';
     }
 }
-add_shortcode('new_arrivals', 'get_new_arrivals_products');
+add_shortcode('new_arrivals', 'get_new_arrivals_products');                                                                                                                                                                                 
