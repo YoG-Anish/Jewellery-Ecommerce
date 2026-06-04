@@ -39,6 +39,21 @@ function create_slider_post_type() {
         )
     );
 
+    // Testimonial cpt
+    register_post_type( 'testimonial',
+        array(
+            'labels' => array(
+                'name' => __( 'Testimonials' ),
+                'singular_name' => __( 'Testimonial' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail' ),
+            'show_in_rest' => true,
+            'menu_icon' => 'dashicons-testimonial'
+        )
+    );
+
 }
 add_action( 'init', 'create_slider_post_type' );
 
