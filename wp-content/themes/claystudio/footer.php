@@ -54,34 +54,48 @@
 
 <!-- Search Popup Modal -->
 <div class="search-popup" id="searchPopup">
-    <div class="search-popup-container">
+      <div class="search-popup-container">
         <div class="search-header">
-            <span class="search-label">WHAT ARE YOU LOOKING FOR?</span>
-            <button class="close-search" id="closeSearch">&times;</button>
+          <span class="search-label">WHAT ARE YOU LOOKING FOR?</span>
+          <button class="close-search" id="closeSearch">&times;</button>
         </div>
         <div class="search-body">
-            <form action="/search" method="get" class="search-form">
-                <input
-                    type="text"
-                    name="q"
-                    placeholder="Search Products..."
-                    class="search-input"
-                    autofocus />
-                <button type="submit" class="search-submit-btn">
-                    <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5">
-                        <circle cx="10.5" cy="10.5" r="7.5" />
-                        <path d="M21 21l-5.2-5.2" />
-                    </svg>
-                </button>
-            </form>
+          <form action="/search" method="get" class="search-form">
+            <input
+              type="text"
+              name="q"
+              placeholder="Search Products..."
+              class="search-input"
+              autofocus
+            />
+            <button type="submit" class="search-submit-btn">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="10.5" cy="10.5" r="7.5" />
+                <path d="M21 21l-5.2-5.2" />
+              </svg>
+            </button>
+          </form>
         </div>
-        <?php wp_footer(); ?>
-        </body>
 
-        </html>
+        <div class="search-quick-links">
+          <span class="search-label">MAIN MENU</span>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./shop.html">Shop</a></li>
+            <li><a href="./custom-bridal.html">Custom Bridal</a></li>
+            <li><a href="./about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<?php wp_footer(); ?>
+</body>
+
+</html>
