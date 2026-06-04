@@ -207,6 +207,7 @@
   text-align: center;
 }
 .free-delivery-section h2 {
+  font-weight: 400;
   font-size: 30px;
   line-height: 1.4;
   letter-spacing: 0.2em;
@@ -435,5 +436,29 @@
   }
   .sophie-nav-group {
     justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .how-to-order-grid {
+    grid-template-columns: 1fr;
+  }
+  .bridegroom-content {
+    margin-left: 0;
+  }
+  .how-to-order {
+    padding: 60px 0;
+  }
+  .video-bg-container {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .privacy-content h2,
+  .client-love-section h2,
+  .free-delivery-section h2,
+  .bridegroom-content h2 {
+    font-size: 24px;
   }
 }

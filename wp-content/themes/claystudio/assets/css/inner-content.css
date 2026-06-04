@@ -83,25 +83,36 @@
 .image-grid {
   flex: 1;
   position: relative;
-  height: 342px;
+  /* Use aspect-ratio instead of fixed height to keep it responsive */
+  width: 100%;
+  max-width: 500px;
+  min-width: 0;
+  aspect-ratio: 500 / 322; /* Adjust this ratio based on your design */
+  margin: 0 auto;
 }
 
 .image-bg {
-  width: 294px;
-  margin-left: auto;
-  z-index: 1;
+  position: absolute; /* Added this so top/right work */
+  width: 75%; /* Use percentage so it scales */
+  max-width: 274px;
+  min-width: 0;
   aspect-ratio: 1 / 1;
   top: 0;
   right: 0;
+  z-index: 1;
+  object-fit: cover;
 }
 
 .image-fg {
   position: absolute;
-  width: 294px;
+  width: 75%; /* Use percentage so it scales */
+  max-width: 274px;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
   left: 0;
   bottom: 0;
   z-index: 2;
-  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 
 .image-grid img {
@@ -157,6 +168,7 @@
   line-height: 1;
   margin: 48px 0;
   transition: opacity 0.3s;
+  text-transform: uppercase;
 }
 
 .btn-shop:hover {
@@ -304,11 +316,30 @@
     flex-direction: column;
   }
   .image-grid {
-    width: 100%;
-    height: 400px;
     margin-bottom: 40px;
   }
+
   .text-content h1 {
     font-size: 32px;
+  }
+  .collections-grid {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .image-bg,
+  .image-fg {
+    width: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-text h2 {
+    font-size: 28px;
+    letter-spacing: 0.2em;
+  }
+  .text-content h2 {
+    font-size: 24px;
+    letter-spacing: 0.2em;
   }
 }

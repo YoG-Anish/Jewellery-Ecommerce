@@ -16,10 +16,18 @@
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
 
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+
     <!-- Coustom CSS  -->
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/inner-content.css" />
     <link rel="stylesheet" href="./css/inner-content-2.css" />
+    <link rel="stylesheet" href="./css/sub-page.css" />
+    <link rel="stylesheet" href="./css/sub-page-2.css" />
     <link rel="stylesheet" href="./css/popups.css" />
 
     <!-- Splide JS -->
@@ -93,7 +101,7 @@
         <nav class="main-nav">
           <ul>
             <li><a href="./index.html">Home</a></li>
-            <li><a href="./shop.html" class="active">Shop</a></li>
+            <li><a href="./shop.html">Shop</a></li>
             <li><a href="./custom-bridal.html">Custom Bridal</a></li>
             <li><a href="./about.html">About</a></li>
           </ul>
@@ -151,9 +159,248 @@
       </div>
     </header>
 
-    <main></main>
+    <main>
+      <section class="questions-section">
+        <div class="questions-grid">
+          <div class="questions-left-image">
+            <img
+              src="https://geminiclaystudio.com/cdn/shop/files/Square.png?v=1716558930&width=1512"
+              alt="earrings emerald"
+            />
+          </div>
+          <div class="questions-right-content">
+            <span class="sub-top">Questions?</span>
+            <h2>We're here to help with sizing, styling and anything else</h2>
+            <p>Check out our FAQ's below or get in touch.</p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Footer -->
+      <section class="e-contact-section">
+        <div class="container">
+          <div class="e-contact-wrapper">
+            <div class="contact-e">
+              <i class="fa-regular fa-envelope-open"></i>
+              <div class="link-title">
+                <span class="web-title">Email</span>
+                <a class="web-link" href="mailto:geminiclaystudio@outlook.com">
+                  geminiclaystudio@outlook.com
+                </a>
+              </div>
+            </div>
+            <div class="contact-e">
+              <i class="fa-brands fa-instagram"></i>
+              <div class="link-title">
+                <span class="web-title">Instagram</span>
+                <a class="web-link" href="mailto:geminiclaystudio@outlook.com">
+                  @geminiclay_studio
+                </a>
+              </div>
+            </div>
+            <div class="contact-e">
+              <i class="fa-brands fa-facebook-f"></i>
+              <div class="link-title">
+                <span class="web-title">Facebook</span>
+                <a class="web-link" href="mailto:geminiclaystudio@outlook.com">
+                  Gemini Clay Studio
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="question-contact-section">
+        <div class="container">
+          <div class="contact-heading">
+            <h2>got any questions?</h2>
+            <p>
+              Use the form below to get in touch - we aim to respond to your
+              enquiry within 2 business days
+            </p>
+          </div>
+          <form class="bridal-form">
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="name" class="field-label">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder=" "
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="email" class="field-label">Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder=" "
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="orderno" class="field-label">
+                  Order No. if applicable
+                </label>
+                <input
+                  type="text"
+                  id="orderno"
+                  name="orderno"
+                  placeholder=" "
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="relate" class="field-label">Do you prefer?</label>
+                <select id="relate" name="relate" required>
+                  <option value="" selected disabled></option>
+                  <option value="core-collection">Core Collection</option>
+                  <option value="bespoke-enquiry">Bespoke Enquiry</option>
+                  <option value="wholesale">Wholesale</option>
+                  <option value="colaboration">Collaboration</option>
+                  <option value="bridal">Bridal</option>
+                </select>
+              </div>
+
+              <div class="field-group full-width">
+                <label for="description" class="field-label">
+                  Please leave any further information here
+                </label>
+
+                <textarea
+                  id="description"
+                  name="description"
+                  rows="5"
+                  placeholder=" "
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="button-container">
+              <button type="submit" class="btn-primary">
+                Send <span>&rsaquo;</span>
+              </button>
+            </div>
+          </form>
+          <div class="terms-and-privacy-policy">
+            <p>
+              This site is protected by reCAPTCHA and the Google
+              <a href="https://policies.google.com/privacy">Privacy Policy</a>
+              and
+              <a href="https://policies.google.com/terms"> Terms of Service</a>
+              apply.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="container">
+          <div class="contact-heading">
+            <h2>faqs</h2>
+            <p>Below are some of are common questions</p>
+          </div>
+          <div class="accordion-container">
+            <!-- Accordion Item 1 (Open by default) -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                HOW LONG WILL SHIPPING TAKE?
+                <span class="icon"></span>
+              </button>
+              <div class="accordion-content">
+                <p>All orders are shipped within 12-36 hours from the UK.</p>
+              </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                HOW LONG FOR A CUSTOM MADE ORDER?
+                <span class="icon"></span>
+              </button>
+              <div class="accordion-content">
+                <p>
+                  Please allow up to 2-6 weeks for a custom order, and 4-12
+                  weeks for custom made bridal orders. This all depends on
+                  quantity and components required for the design, however all
+                  information will be detailed on my reply once you have sent an
+                  enquiry form through.
+                </p>
+              </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item">
+              <button class="accordion-header">
+                CAN I ORDER A PAIR OF EARRINGS THAT ARE NO LONGER IN STOCK?
+                <span class="icon"></span>
+              </button>
+              <div class="accordion-content">
+                <p>
+                  In most cases, yes! Please get in touch using the contact form
+                  above and I can remake the earrings of choice for you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="collection-grid-section">
+        <!-- Background Container -->
+        <div class="background-overlay-collection">
+          <img
+            src="https://geminiclaystudio.com/cdn/shop/files/8F515E.png?v=1737710075"
+            id="img-0"
+            class="active"
+          />
+          <img
+            src="https://geminiclaystudio.com/cdn/shop/files/5.png?v=1716567950"
+            id="img-1"
+            class=""
+          />
+          <img
+            src="https://geminiclaystudio.com/cdn/shop/files/6.png?v=1716567970"
+            id="img-2"
+            class=""
+          />
+          <!-- This dark layer stays over the images but under the text -->
+          <div class="dark-tint"></div>
+        </div>
+
+        <div class="container collection-grid">
+          <!-- Item 1 (data-index 0) -->
+          <div class="collection-grid-item" data-index="0">
+            <div class="collection-content">
+              <h2 class="collection-title">Limited Edition Bow Earrings</h2>
+              <a href="#" class="collection-view-btn">+ VIEW COLLECTION</a>
+            </div>
+          </div>
+
+          <!-- Item 2 (data-index 1) -->
+          <div class="collection-grid-item" data-index="1">
+            <div class="collection-content">
+              <h2 class="collection-title">Kimono Collection</h2>
+              <a href="#" class="collection-view-btn">+ VIEW COLLECTION</a>
+            </div>
+          </div>
+
+          <!-- Item 3 (data-index 2) -->
+          <div class="collection-grid-item" data-index="2">
+            <div class="collection-content">
+              <h2 class="collection-title">Vintage Collection</h2>
+              <a href="#" class="collection-view-btn">+ VIEW COLLECTION</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <!-- Footer -->
     <footer class="site-footer">
       <div class="container footer-grid">
@@ -291,6 +538,7 @@
     <script src="./js/main.js"></script>
     <script src="./js/slider.js"></script>
     <script src="./js/tab.js"></script>
+    <script src="./js/inner.js"></script>
     <script src="./js/popups.js"></script>
   </body>
 </html>

@@ -346,6 +346,7 @@
 .bridal-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 .bridal-content-wrapper {
   max-width: 399px;
@@ -432,4 +433,33 @@
   width: 100%;
   max-width: 220.22px;
   min-width: 0;
+}
+
+@media (max-width: 991px) {
+  .custom-arrows {
+    bottom: 0px;
+  }
+}
+@media (max-width: 480px) {
+  .bridal-grid {
+    grid-template-columns: 1fr;
+  }
+  .left-bridal-section h2 {
+    margin-bottom: 20px;
+  }
+  .left-bridal-section img {
+    margin-top: 20px;
+  }
+  .left-bridal-section .btn-primary {
+    margin: 16px 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h2 {
+    font-size: 30px;
+  }
+  .left-bridal-section h2 {
+    font-size: 24px;
+  }
 }
