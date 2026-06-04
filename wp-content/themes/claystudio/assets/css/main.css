@@ -302,9 +302,51 @@ a {
   font-size: 12px;
   letter-spacing: 0.2em;
   margin: 10px;
-  transition: var(--transition);
+
+  /* Smoothness & Hardware Acceleration Fixes */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateZ(0); /* Forces GPU rendering */
+
+  /* Match the text transition speed to the slide speed */
+  transition:
+    color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Creating the sliding background layer */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: -1px; /* Overlaps slight sub-pixel rounding errors on borders */
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background: var(--bg-light);
+  z-index: -1;
+
+  /* Starts completely hidden */
+  transform: scaleX(0);
+  transform-origin: right center;
+
+  /* Custom Ease-Out-Quint curve for a luxurious feel */
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform; /* Prepares browser for smooth layout animation */
+}
+
+/* Hover State */
+.btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left center; /* Shifts origin instantly to pull from left */
+}
+
+.btn:hover {
+  color: var(--primary-color);
+  border-color: var(--white);
+}
+
+/* Button Variants Styling */
 .btn-primary-hero {
   background: var(--primary-color);
   color: var(--white);
@@ -312,14 +354,9 @@ a {
 }
 
 .btn-outline {
+  background: transparent;
   border: 2px solid var(--white);
   color: var(--white);
-}
-
-.btn:hover {
-  background: var(--bg-light);
-  color: var(--primary-color);
-  border: 2px solid var(--white);
 }
 
 /* Base style for both arrows */
