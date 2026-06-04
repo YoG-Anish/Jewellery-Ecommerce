@@ -50,3 +50,109 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+
+/* Aditional Css */
+
+.shop-all-collection-section {
+	padding: calc(var(--nav-height) + 30px) 0 30px;
+}
+
+li.product-category.product a img{
+    aspect-ratio: 1 / 1 !important;
+}
+
+/* 1. Base Setup: Remove default WooCommerce floats and CLEARFIX */
+.woocommerce ul.products.columns-4 {
+    display: grid !important;
+    gap: 30px;
+}
+
+/* FIX: Hide the "ghost" spaces created by ::before and ::after */
+.woocommerce ul.products.columns-4::before,
+.woocommerce ul.products.columns-4::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Reset item widths */
+.woocommerce ul.products.columns-4 li.product {
+    width: 100% !important;
+    margin: 0 !important;
+    float: none !important;
+    clear: none !important;
+}
+
+/* 2. Desktop: 3 Columns */
+@media (min-width: 1025px) {
+    .woocommerce ul.products.columns-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 3. Tablet: 2 Columns */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .woocommerce ul.products.columns-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 4. Mobile: 1 Column */
+@media (max-width: 767px) {
+    .woocommerce ul.products.columns-4 {
+        grid-template-columns: 1fr;
+    }
+}
+.woocommerce-loop-category__title {
+    text-align: center;
+    padding: 16px 0 0 !important;
+	text-transform:uppercase;
+	font-size:20px !important;
+	font-weight:400;
+	letter-spacing:0.2em;
+}
+mark.count {
+	background: transparent !important;
+}
+.woocommerce-loop-category__title:hover,
+.woocommerce-loop-category__title:hover mark.count {
+	color: var(--primary-color)
+}
+/* 1. Container Setup */
+.product-category a {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Standard safety */
+    text-decoration: none;
+}
+
+/* 2. The Image - Locked Box */
+.product-category img {
+    width: 100%;
+    /* This locks the box size so it CANNOT grow bottom */
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    
+    /* This clips the zoom strictly to the 1:1 box */
+    clip-path: inset(0); 
+    
+    /* Ensure it scales from the dead center */
+    transform-origin: center center;
+    
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+/* 3. The Title - Create a physical gap */
+.woocommerce-loop-category__title {
+    margin: 0 !important;
+    padding: 16px 0px !important; /* This padding creates a "safe zone" */
+    background: #fff; /* Matches background to ensure no overlap visual glitches */
+    position: relative;
+    z-index: 2;
+}
+
+/* 4. The Hover Effect */
+.product-category:hover img {
+    transform: scale(1.1);
+}
