@@ -17,11 +17,11 @@
             aria-label="Announcements">
             <div class="splide__track">
                 <ul class="splide__list" id="splide-list">
-                    <li class="splide__slide">FREE STANDARD SHIPPING ON UK ORDERS</li>
+                    <li class="splide__slide"><?php echo get_theme_mod('header_marquee_text1'); ?></li>
                     <li class="splide__slide dot">•</li>
-                    <li class="splide__slide">HANDCRAFTED IN SCOTLAND</li>
+                    <li class="splide__slide"><?php echo get_theme_mod('header_marquee_text2'); ?></li>
                     <li class="splide__slide dot">•</li>
-                    <li class="splide__slide">BESPOKE BRIDAL JEWELLERY</li>
+                    <li class="splide__slide"><?php echo get_theme_mod('header_marquee_text3'); ?></li>
                     <li class="splide__slide dot">•</li>
                 </ul>
             </div>

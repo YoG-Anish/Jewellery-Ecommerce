@@ -42,6 +42,27 @@ function customizer_section_header($wp_customize) {
         'settings' => 'footer_about_description',
         'type' => 'textarea',
     )));
-    
+
+    //header text1 marquee
+    $wp_customize->add_setting('header_marquee_text1'); // Add a setting for the header_marquee_text1
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'header_marquee_text1', array(
+        'label' => __('Header Marquee Text 1', 'claystudio'),
+        'section' => 'header',
+        'settings' => 'header_marquee_text1',
+    )));
+    //header text2 marquee
+    $wp_customize->add_setting('header_marquee_text2'); // Add a setting for the header_marquee_text2
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'header_marquee_text2', array(
+        'label' => __('Header Marquee Text 2', 'claystudio'),
+        'section' => 'header',
+        'settings' => 'header_marquee_text2',
+    )));
+    //header text3 marquee
+    $wp_customize->add_setting('header_marquee_text3'); // Add a setting for the header_marquee_text3
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'header_marquee_text3', array(
+        'label' => __('Header Marquee Text 3', 'claystudio'),
+        'section' => 'header',
+        'settings' => 'header_marquee_text3',
+    )));
 }
 add_action('customize_register', 'customizer_section_header');

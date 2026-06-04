@@ -62,13 +62,11 @@ get_header(); ?>
         <section id="variation-slider" class="splide" aria-label="Variations">
             <div class="splide__track">
                 <ul class="splide__list" id="splide-list">
-                    <li class="splide__slide">
-                        <a href="#">ready-to-wear bridal</a>
-                    </li>
-                    <li class="splide__slide"><a href="#">made in the uk</a></li>
-                    <li class="splide__slide"><a href="#"> signature styles</a></li>
-                    <li class="splide__slide"><a href="#"> Free uk delivery </a></li>
-                    <li class="splide__slide"><a href="#">Gemini clay studio</a></li>
+                    <li class="splide__slide"><?php echo get_field('section1_marquee_text1'); ?></li>
+                    <li class="splide__slide"><?php echo get_field('section1_marquee_text2'); ?></li>
+                    <li class="splide__slide"><?php echo get_field('section1_marquee_text3'); ?></li>
+                    <li class="splide__slide"><?php echo get_field('section1_marquee_text4'); ?></li>
+                    <li class="splide__slide"><?php echo get_field('section1_marquee_text5'); ?></li>
                 </ul>
             </div>
         </section>
@@ -132,7 +130,7 @@ get_header(); ?>
                 <!-- Left side: Overlapping Images -->
                 <div class="image-grid">
                     <div class="image-bg">
-                        <?php 
+                        <?php
                         $section3_image_back = get_field('section3_image_back');
                         if ($section3_image_back) {
                             echo '<img src="' . esc_url($section3_image_back['url']) . '" alt="' . esc_attr($section3_image_back['alt']) . '"/>';
@@ -140,7 +138,7 @@ get_header(); ?>
                         ?>
                     </div>
                     <div class="image-fg">
-                        <?php 
+                        <?php
                         $section3_image_front = get_field('section3_image_front');
                         if ($section3_image_front) {
                             echo '<img src="' . esc_url($section3_image_front['url']) . '" alt="' . esc_attr($section3_image_front['alt']) . '"/>';
@@ -192,54 +190,33 @@ get_header(); ?>
             <span class="sub-heading trusted-heading">TRUSTED BY THE BEST</span>
 
             <div class="trusted-grid">
-                <!-- Item 1 -->
-                <div class="trusted-item">
-                    <div class="trusted-logo">
-                        <img
-                            src="https://cdn.shopify.com/s/files/1/0783/1486/4961/files/1.jpg?v=1716672785"
-                            alt="Tie The Knot" />
-                    </div>
-                    <p class="trusted-text">
-                        Regularly featured in Tie The Knot Scotland wedding magazine.
-                    </p>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="trusted-item">
-                    <div class="trusted-logo">
-                        <img
-                            src="https://cdn.shopify.com/s/files/1/0783/1486/4961/files/3.jpg?v=1716672785"
-                            alt="Scottish Wedding Show" />
-                    </div>
-                    <p class="trusted-text">
-                        Supplier for The Scottish Wedding Show Catwalk 2024.
-                    </p>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="trusted-item">
-                    <div class="trusted-logo">
-                        <img
-                            src="https://cdn.shopify.com/s/files/1/0783/1486/4961/files/4.jpg?v=1716672785"
-                            alt="Rock My Wedding" />
-                    </div>
-                    <p class="trusted-text">
-                        Rock My Wedding <br />recommended supplier.
-                    </p>
-                </div>
-
-                <!-- Item 4 -->
-                <div class="trusted-item">
-                    <div class="trusted-logo">
-                        <img
-                            src="https://cdn.shopify.com/s/files/1/0783/1486/4961/files/2.jpg?v=1716672785"
-                            alt="Opus Couture" />
-                    </div>
-                    <p class="trusted-text">
-                        Featured in Opus Couture anniversary campaign.
-                    </p>
-                </div>
+                <?php
+                $args = array(
+                    'post_type' => 'partner',
+                    'posts_per_page' => -1,
+                );
+                $partners = new WP_Query($args);
+                if ($partners->have_posts()) :
+                    while ($partners->have_posts()) : $partners->the_post();   ?>
+                        <div class="trusted-item">
+                            <?php
+                            $partner_logo = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                            if ($partner_logo) : ?>
+                                <div class="trusted-logo">
+                                    <img src="<?php echo esc_url($partner_logo); ?>" alt="<?php the_title(); ?>" />
+                                </div>
+                            <?php endif; ?>
+                            <p class="trusted-text">
+                                <?php the_content(); ?>
+                            </p>
+                        </div>
+                <?php
+                    endwhile;
+                    wp_reset_postdata();
+                endif;
+                ?>
             </div>
+        </div>
         </div>
     </section>
 
@@ -278,7 +255,6 @@ get_header(); ?>
                             <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" />
                         </div>
                         <div class="product-info">
-                            <span class="vendor">GEMINI CLAY STUDIO</span>
                             <h3 class="product-title"><?php the_title(); ?></h3>
                             <div class="price">
                                 <?php if ($product->is_on_sale()) : ?>
@@ -310,7 +286,6 @@ get_header(); ?>
                             <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" alt="<?php the_title(); ?>" />
                         </div>
                         <div class="product-info">
-                            <span class="vendor">GEMINI CLAY STUDIO</span>
                             <h3 class="product-title"><?php the_title(); ?></h3>
                             <div class="price">
                                 <span class="current-price"><?php echo $product->get_price(); ?></span>
@@ -322,113 +297,35 @@ get_header(); ?>
 
             </div>
 
-            <a href="/shop" class="btn-primary mt-90">SEE ALL COLLECTIONS</a>
+            <a href="<?php echo get_field('section6_button_link'); ?>" class="btn-primary mt-90"><?php echo get_field('section6_button_text'); ?></a>
         </div>
     </section>
 
-    <section class="testimonial-slider-section">
-        <div class="container">
-            <div
-                id="testimonial-slider"
-                class="splide"
-                aria-label="Customer Testimonials">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        <!-- Slide 1 -->
-                        <li class="splide__slide">
-                            <div class="testimonial-flex">
-                                <div class="testimonial-content">
-                                    <span class="testimonial-label">PERFECT</span>
-                                    <h2 class="testimonial-quote">
-                                        “ITEM WAS PERFECT AND VERY FAST DELIVERY.”
-                                    </h2>
-                                </div>
-                                <div class="testimonial-image">
-                                    <img
-                                        src="https://geminiclaystudio.com/cdn/shop/files/Square_7.jpg?v=1716669654&width=1080"
-                                        alt="Red handmade earrings" />
-                                </div>
-                            </div>
-                        </li>
+    <?php get_template_part('template-parts/content', 'testimonial'); ?>
 
-                        <!-- Slide 2 -->
-                        <li class="splide__slide">
-                            <div class="testimonial-flex">
-                                <div class="testimonial-content">
-                                    <span class="testimonial-label">BEAUTIFUL</span>
-                                    <h2 class="testimonial-quote">
-                                        “ABSOLUTELY STUNNING PIECE, THE CRAFTSMANSHIP IS
-                                        INCREDIBLE.”
-                                    </h2>
-                                </div>
-                                <div class="testimonial-image">
-                                    <img
-                                        src="https://geminiclaystudio.com/cdn/shop/files/Square_10.jpg?v=1716669724&width=1080"
-                                        alt="Handmade jewellery" />
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
 
-                <!-- Custom Arrows positioned in the bottom left -->
-                <div class="splide__arrows custom-arrows">
-                    <!-- PREV ARROW (Points Left) -->
-                    <button
-                        class="splide__arrow splide__arrow--prev"
-                        type="button"
-                        aria-label="Previous slide">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-chevron-left"
-                            viewBox="0 0 16 16">
-                            <path
-                                fill-rule="evenodd"
-                                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-                        </svg>
-                    </button>
-
-                    <!-- NEXT ARROW (Points Right) -->
-                    <button
-                        class="splide__arrow splide__arrow--next"
-                        type="button"
-                        aria-label="Next slide">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            class="bi bi-chevron-left"
-                            viewBox="0 0 16 16">
-                            <path
-                                fill-rule="evenodd"
-                                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="bridal-section">
         <div class="container">
             <div class="bridal-grid">
                 <div class="left-bridal-section">
                     <div class="bridal-content-wrapper">
-                       <?php echo get_field('section8_item1'); ?>
-                        <img
-                            src="https://geminiclaystudio.com/cdn/shop/files/Square_12.jpg?v=1716670047&width=1080"
-                            alt="Bride" />
+                        <?php echo get_field('section8_item1');
+                        $section8_image_1 = get_field('section8_image_1');
+                        if ($section8_image_1) {
+                            echo '<img src="' . esc_url($section8_image_1['url']) . '" alt="' . esc_attr($section8_image_1['alt']) . '"/>';
+                        }
+                        ?>
                         <a href="<?php echo get_field('section8_link'); ?>" class="btn-primary"><?php echo get_field('section8_link_text'); ?></a>
                     </div>
                 </div>
                 <div class="right-bridal-section">
                     <div class="bridal-content-wrapper">
-                        <img
-                            src="https://geminiclaystudio.com/cdn/shop/files/CM207765.jpg?v=1716661575&width=1080"
-                            alt="" />
+                        <?php
+                        $section8_image_2 = get_field('section8_image_2');
+                        if ($section8_image_2) {
+                            echo '<img src="' . esc_url($section8_image_2['url']) . '" alt="' . esc_attr($section8_image_2['alt']) . '"/>';
+                        }
+                        ?>
                         <?php echo get_field('section8_item2'); ?>
                     </div>
                 </div>

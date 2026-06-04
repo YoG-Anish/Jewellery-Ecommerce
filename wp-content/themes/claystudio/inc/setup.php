@@ -54,6 +54,21 @@ function create_slider_post_type() {
         )
     );
 
+    //claystudio partners cpt
+    register_post_type( 'partner',
+        array(
+            'labels' => array(
+                'name' => __( 'Partners' ),
+                'singular_name' => __( 'Partner' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail' ),
+            'show_in_rest' => true,
+            'menu_icon' => 'dashicons-groups'
+        )
+    );
+
 }
 add_action( 'init', 'create_slider_post_type' );
 
