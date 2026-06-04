@@ -6,10 +6,9 @@ get_header(); ?>
     <div class="container">
         <div class="error-content">
             <span class="error-subtitle">Error 404</span>
-            <h1>Page Not Found</h1>
+            <h1><?php echo get_theme_mod('error_404_title'); ?></h1>
             <p class="description">
-                The page you are looking for might have been removed, had its name
-                changed, or is temporarily unavailable. Let's get you back on track.
+                <?php echo get_theme_mod('error_404_description'); ?>
             </p>
             <div class="error-actions">
                 <a href="<?php echo home_url(); ?>" class="btn btn-primary-hero">Back to Home</a>

@@ -51,7 +51,37 @@
     </svg>
     <div class="arrow-icon">↑</div>
 </div>
-<?php wp_footer(); ?>
-</body>
 
-</html>
+<!-- Search Popup Modal -->
+<div class="search-popup" id="searchPopup">
+    <div class="search-popup-container">
+        <div class="search-header">
+            <span class="search-label">WHAT ARE YOU LOOKING FOR?</span>
+            <button class="close-search" id="closeSearch">&times;</button>
+        </div>
+        <div class="search-body">
+            <form action="/search" method="get" class="search-form">
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Search Products..."
+                    class="search-input"
+                    autofocus />
+                <button type="submit" class="search-submit-btn">
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5">
+                        <circle cx="10.5" cy="10.5" r="7.5" />
+                        <path d="M21 21l-5.2-5.2" />
+                    </svg>
+                </button>
+            </form>
+        </div>
+        <?php wp_footer(); ?>
+        </body>
+
+        </html>

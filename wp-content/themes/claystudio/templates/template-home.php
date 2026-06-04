@@ -99,7 +99,7 @@ get_header(); ?>
             'taxonomy'   => 'product_cat',
             'hide_empty' => true,
             'number'     => 4, // We take 3 categories, + 1 ACF = 4 items total
-            'exclude'    => [$exclude_id] // Change 15 to your 'Uncategorized' ID
+            'exclude'    => [$exclude_id] 
         ]);
 
         foreach ($categories as $cat) {

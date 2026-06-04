@@ -64,5 +64,26 @@ function customizer_section_header($wp_customize) {
         'section' => 'header',
         'settings' => 'header_marquee_text3',
     )));
+
+    // 404 section dynamic
+    $wp_customize->add_section('error_404', array(
+        'title' => __('404 Page Settings', 'claystudio'),
+        'priority' => 30,
+    ));
+    // 404 title
+    $wp_customize->add_setting('error_404_title');
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'error_404_title', array(
+        'label' => __('404 Page Title', 'claystudio'),
+        'section' => 'error_404',
+        'settings' => 'error_404_title',
+    )));
+    // 404 description
+    $wp_customize->add_setting('error_404_description');
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'error_404_description', array(
+        'label' => __('404 Page Description', 'claystudio'),
+        'section' => 'error_404',
+        'settings' => 'error_404_description',
+        'type' => 'textarea',
+    )));
 }
 add_action('customize_register', 'customizer_section_header');
