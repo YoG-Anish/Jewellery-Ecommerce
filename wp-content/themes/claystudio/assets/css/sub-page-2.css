@@ -40,7 +40,7 @@
 
 .field-label {
   position: absolute;
-  top: 14px;
+  top: 34px;
   left: 12px;
   z-index: 1;
   padding: 0 8px;
@@ -88,7 +88,7 @@ textarea:focus {
 .field-group:has(input:focus) .field-label,
 .field-group:has(select:focus) .field-label,
 .field-group:has(textarea:focus) .field-label {
-  top: -10px;
+  top: 14px;
   font-size: 12px;
 }
 

@@ -163,9 +163,11 @@ a {
 
   position: relative;
   padding-bottom: 4px;
+  /* Add this to keep text and chevron aligned */
+  display: inline-flex;
+  align-items: center;
 }
-/* Create the underline line */
-.main-nav a::after {
+.main-nav a::before {
   content: "";
   position: absolute;
   width: 0;
@@ -176,13 +178,8 @@ a {
   transition: width 0.3s ease-in-out;
 }
 
-/* Hover effect: Slide width to 100% */
-.main-nav a:hover::after {
-  width: 100%;
-}
-
-/* Active state: Keep width at 100% */
-.main-nav a.active::after {
+.main-nav a:hover::before,
+.main-nav a.active::before {
   width: 100%;
 }
 
@@ -702,6 +699,7 @@ a {
 .sub-menu li:last-child a {
   border-bottom: none;
 }
+
 .menu-item-has-children > a::after {
   content: "";
   display: inline-block;

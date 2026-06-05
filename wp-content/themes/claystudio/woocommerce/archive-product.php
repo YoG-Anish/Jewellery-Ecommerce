@@ -38,12 +38,34 @@ do_action('woocommerce_before_main_content');
  */
 do_action('woocommerce_shop_loop_header'); ?>
 <section class="shop-section-woo">
+	<h2 class="shop-header">All Product</h2>
 	<div class="container">
 		<aside class="shop-filters-wrapper">
+			<div class="mobile-sidebar-header">
+				<span>Filters</span>
+				<button type="button" class="close-sidebar">&times;</button>
+			</div>
 			<?php echo do_shortcode('[fe_widget]'); ?>
 		</aside>
 
 		<div class="product-loop-wrapper">
+			<div class="shop-layout-controls">
+				<button type="button" class="mobile-filter-trigger">
+					<span class="filter-icon">☰</span> Filters
+				</button>
+
+				<div class="grid-switcher">
+					<button type="button" class="switch-btn" data-cols="2" title="2 Columns">
+						<span class="lines"><span></span><span></span></span>
+					</button>
+					<button type="button" class="switch-btn active" data-cols="3" title="3 Columns">
+						<span class="lines"><span></span><span></span><span></span></span>
+					</button>
+					<button type="button" class="switch-btn" data-cols="4" title="4 Columns">
+						<span class="lines"><span></span><span></span><span></span><span></span></span>
+					</button>
+				</div>
+			</div>
 			<?php
 			if (woocommerce_product_loop()) {
 

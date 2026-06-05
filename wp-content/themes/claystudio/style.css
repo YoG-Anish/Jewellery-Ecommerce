@@ -299,15 +299,19 @@ mark.count {
 }
 
 /* 3. Image Hover & Consistency */
-.woocommerce ul.products li.product a img {
+.shop-all-collection-section .woocommerce ul.products li.product a img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  transition: transform 0.5s ease;
+
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-.woocommerce ul.products li.product:hover a img {
-  transform: scale(1);
+.shop-all-collection-section .woocommerce ul.products li.product:hover a img {
+  transform: scale(1.08);
 }
 
 .woocommerce ul.products li.product a {
@@ -657,7 +661,7 @@ a.button.product_type_simple {
 
 /* 2. Image settings + Transition for the darken effect */
 .woocommerce ul.products li.product a img {
-  aspect-ratio: 274 / 356 !important;
+  aspect-ratio: 274 / 356;
   margin: 0;
   width: 100%;
   display: block;
@@ -738,4 +742,70 @@ section.trusted-section .container {
 }
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
   padding: 0 !important;
+}
+
+.wpc-term-item-content-wrapper input {
+  width: auto !important;
+}
+
+/* Wishlist  */
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image {
+  margin: 0;
+  left: calc(100% - 60px);
+  top: 20px;
+  padding: 8px;
+  background: white !important;
+  border-radius: 50% !important;
+
+  /* Hiding the button initially */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease,
+    transform 0.4s ease;
+  transform: translateX(60px);
+}
+.woocommerce
+  ul.products
+  li.product:hover
+  .yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+}
+.yith-add-to-wishlist-button-block {
+  margin: 0;
+}
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button--icon-button:is(
+    button
+  )
+  svg.yith-wcwl-add-to-wishlist-button-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--heading-color) !important;
+}
+
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image:hover {
+  background: var(--primary-color) !important;
+}
+
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image:hover
+  svg.yith-wcwl-add-to-wishlist-button-icon {
+  color: white !important;
+}
+
+input#wp-comment-cookies-consent,
+.form-submit input {
+  width: auto;
+  cursor: pointer;
+}
+
+input.wpcf7-form-control.wpcf7-submit.has-spinner.btn-primary {
+  width: auto;
+}
+
+form.woocommerce-ordering .orderby:focus,
+form.woocommerce-ordering .orderby:active {
+  box-shadow: none !important;
 }
