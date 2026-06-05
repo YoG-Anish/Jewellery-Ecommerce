@@ -606,20 +606,20 @@ section.related.products .woocommerce-loop-product__title {
   font-size: 13px;
   letter-spacing: 0.1em;
 }
-span.woocommerce-Price-amount.amount bdi
+span.woocommerce-Price-amount.amount bdi{
   color: var(--heading-color);
 }
 a.button.product_type_simple {
-  font-weight: 400;
-  background: var(--primary-color);
-  color: white;
-  font-size: 14px;
-  text-transform: uppercase;
-  width: 100%;
-  text-align: center;
-  padding: 12px 32px;
-  letter-spacing: 0.2em;
-  border-radius: 0;
+  font-weight: 400 !important;
+  background: var(--primary-color) !important;
+  color: white !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 12px 32px !important;
+  letter-spacing: 0.1em !important;
+  border-radius: 0 !important;
 }
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
   padding-bottom: 60px;
@@ -636,4 +636,11 @@ section.trusted-section .container {
 
 .wpc-filters-range-inputs .ui-slider-horizontal .ui-slider-range {
     background-color: var(--primary-color) !important;
+}
+.woocommerce-info {
+    border-top-color: var(--primary-color);
+	margin-top:40px;
+}
+.woocommerce-info::before {
+    color:  var(--primary-color);
 }
