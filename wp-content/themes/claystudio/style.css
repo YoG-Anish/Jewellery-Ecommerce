@@ -629,4 +629,19 @@ a.button.product_type_simple {
     padding:12px 32px;
     letter-spacing:0.2em;
     border-radius:0;
+	
+}
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+    padding-bottom: 60px;
+}
+a.button.product_type_simple {
+    position:absolute;
+    top:calc(100% - 60px);
+    
+}
+
+section.trusted-section .container {
+    display: flex ;
+    flex-direction: column;
+    
 }
