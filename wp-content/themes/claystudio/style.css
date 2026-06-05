@@ -50,3 +50,25 @@
   -webkit-appearance: none;
   margin: 0;
 }
+
+.wishlist-icon-link {
+    position: relative;
+    display: inline-block;
+    color: currentColor;
+    text-decoration: none;
+}
+
+.wishlist-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: #000; /* You can change this to your theme color */
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 50%;
+    min-width: 14px;
+    text-align: center;
+    line-height: 1;
+}

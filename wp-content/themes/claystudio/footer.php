@@ -72,13 +72,15 @@
         </button>
     </div>
     <nav class="sidebar-nav">
-        <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./shop.html">Shop</a></li>
-            <li><a href="./custom-bridal.html">Custom Bridal</a></li>
-            <li><a href="./about.html">About</a></li>
-        </ul>
-    </nav>
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'search-menu', // Same menu location
+                'container'      => false,
+                'menu_class'     => 'nav-list-phone',
+                'menu_id'        => 'footer-phone-list' // Different unique ID
+            ));
+            ?>
+        </nav>
 </aside>
 
 <!-- Search Popup Modal -->
@@ -113,14 +115,17 @@
 
         <div class="search-quick-links">
             <span class="search-label">MAIN MENU</span>
-            <?php
-            wp_nav_menu(
-                array(
-                    'theme_location' => 'search-menu',
+            <nav class="footer-nav-window">
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'search-menu', // Your menu location
+                    'container'      => false,
+                    'menu_class'     => 'nav-list-window',
+                    'menu_id'        => 'footer-window-list' // Unique ID
+                ));
+                ?>
+            </nav>
 
-                )
-            );
-            ?>
         </div>
     </div>
 </div>
