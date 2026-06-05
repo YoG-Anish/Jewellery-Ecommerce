@@ -65,65 +65,20 @@ function get_new_arrivals_products() {
 add_shortcode('new_arrivals', 'get_new_arrivals_products');    
 
 
+// AJAX Handler to fetch current count
+add_action('wp_ajax_get_wishlist_count', 'get_wishlist_count_callback');
+add_action('wp_ajax_nopriv_get_wishlist_count', 'get_wishlist_count_callback');
 
-/**
- * 1. THE AJAX HANDLER
- */
-add_action( 'wp_ajax_update_wishlist_number', 'claystudio_update_wishlist_number' );
-add_action( 'wp_ajax_nopriv_update_wishlist_number', 'claystudio_update_wishlist_number' );
-function claystudio_update_wishlist_number() {
-    nocache_headers(); 
-    if ( function_exists( 'yith_wcwl_count_all_products' ) ) {
-        echo yith_wcwl_count_all_products();
-    } else {
-        echo '0';
-    }
+function get_wishlist_count_callback() {
+    // Return the current wishlist count
+    echo yith_wcwl_count_products();
     wp_die();
 }
 
-/**
- * 2. THE ULTIMATE INLINE SCRIPT (Fixed for your specific classes)
- */
-add_action('wp_footer', 'claystudio_wishlist_force_sync', 99);
-function claystudio_wishlist_force_sync() {
-    ?>
-    <script type="text/javascript">
-    (function($) {
-        'use strict';
-
-        function update_header_wishlist() {
-            console.log("Wishlist Sync: Requesting new count...");
-            $.post('<?php echo admin_url('admin-ajax.php'); ?>', {
-                action: 'update_wishlist_number'
-            }, function(response) { 
-                console.log("Wishlist Sync: New count is " + response);
-                $('.wishlist-count').text(response); 
-            });
-        }
-
-        // A. Listen for the standard YITH events
-        $(document).on('added_to_wishlist removed_from_wishlist', function() {
-            console.log("YITH Event detected!");
-            setTimeout(update_header_wishlist, 1000);
-        });
-
-        // B. Watch for clicks on YOUR specific button classes from the inspector
-        $(document).on('click', '.yith-wcwl-add-to-wishlist-button, .yith-wcwl-add-button a, .yith-wcwl-remove-button a', function() {
-            console.log("Heart button click detected!");
-            // We check multiple times because YITH can be slow to update the database
-            setTimeout(update_header_wishlist, 1000);
-            setTimeout(update_header_wishlist, 2500);
-        });
-
-        // C. The "Hammer": Catch any AJAX that looks like YITH
-        $(document).ajaxComplete(function(event, xhr, settings) {
-            if (settings.data && settings.data.includes('yith_wcwl')) {
-                console.log("YITH AJAX detected!");
-                setTimeout(update_header_wishlist, 1000);
-            }
-        });
-
-    })(jQuery);
-    </script>
-    <?php
+// Localize the AJAX URL so JS can find it
+add_action('wp_enqueue_scripts', 'localize_wishlist_script');
+function localize_wishlist_script() {
+    wp_localize_script('claystudio-js', 'wishlist_ajax', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
 }

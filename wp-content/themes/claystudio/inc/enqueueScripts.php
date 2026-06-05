@@ -12,6 +12,7 @@ function claystudio_enqueue_scripts()
     wp_enqueue_style('claystudio-sub-page', get_template_directory_uri() . '/assets/css/sub-page.css', array(), filemtime(get_template_directory()), 'all');
     wp_enqueue_style('claystudio-sub-page-2', get_template_directory_uri() . '/assets/css/sub-page-2.css', array(), filemtime(get_template_directory()), 'all');
     wp_enqueue_style('claystudio-popups', get_template_directory_uri() . '/assets/css/popups.css', array(), filemtime(get_template_directory()), 'all');
+    wp_enqueue_style('claystudio-aditional', get_template_directory_uri() . '/assets/css/aditional.css', array(), filemtime(get_template_directory()), 'all');
 
     wp_enqueue_script('jquery'); // Ensure jQuery is loaded
     wp_enqueue_script('claystudio-splide-min', get_template_directory_uri() . '/assets/js/splide.min.js', array(), filemtime(get_template_directory()), true);
@@ -23,6 +24,7 @@ function claystudio_enqueue_scripts()
     wp_enqueue_script('claystudio-popups', get_template_directory_uri() . '/assets/js/popups.js', array(), filemtime(get_template_directory()), true);
 }
 add_action('wp_enqueue_scripts', 'claystudio_enqueue_scripts');
+
 
 
 
