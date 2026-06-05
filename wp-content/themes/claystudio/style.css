@@ -606,9 +606,14 @@ section.related.products .woocommerce-loop-product__title {
   font-size: 13px;
   letter-spacing: 0.1em;
 }
-span.woocommerce-Price-amount.amount bdi{
+span.woocommerce-Price-amount.amount bdi {
   color: var(--heading-color);
 }
+li.product.type-product {
+  position: relative;
+  container-type: inline-size;
+}
+
 a.button.product_type_simple {
   font-weight: 400 !important;
   background: var(--primary-color) !important;
@@ -621,26 +626,89 @@ a.button.product_type_simple {
   letter-spacing: 0.1em !important;
   border-radius: 0 !important;
 }
-a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
-  padding-bottom: 60px;
-}
-a.button.product_type_simple {
-  position: absolute;
-  top: calc(100% - 60px);
+/* 1. Set the container to track width */
+.woocommerce ul.products li.product {
+  position: relative;
+  container-type: inline-size;
+  overflow: hidden; /* Keeps the darken effect clean */
 }
 
+/* 2. Image settings + Transition for the darken effect */
+.woocommerce ul.products li.product a img {
+  aspect-ratio: 274 / 356 !important;
+  margin: 0;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: filter 0.4s ease; /* Smoothly darkens the image */
+}
+
+/* 3. Darken image on hover */
+.woocommerce ul.products li.product:hover a img {
+  filter: brightness(0.8); /* Adjust 0.8 to 0.7 for darker, 0.9 for lighter */
+}
+
+/* 4. The Button (Hidden by default) */
+a.button.product_type_simple {
+  position: absolute;
+  top: calc(129.93cqw - 60px) !important;
+  left: 5%;
+  width: 90% !important;
+  z-index: 10;
+
+  /* Hiding the button initially */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px); /* Optional: button slides up slightly when appearing */
+
+  /* Your Styles */
+  font-weight: 400 !important;
+  background: var(--white) !important;
+  color: var(--heading-color) !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  padding: 12px 10px !important;
+  letter-spacing: 0.1em !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+a.button.product_type_simple:hover {
+	background: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+/* 5. Show button when hovering over the product item */
+.woocommerce ul.products li.product:hover a.button.product_type_simple {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Returns to original position */
+}
+
+/* 6. Adjust Title/Price spacing */
+.woocommerce-loop-product__title {
+  margin-top: 15px !important;
+}
 section.trusted-section .container {
   display: flex;
   flex-direction: column;
 }
 
 .wpc-filters-range-inputs .ui-slider-horizontal .ui-slider-range {
-    background-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
 }
 .woocommerce-info {
-    border-top-color: var(--primary-color);
-	margin-top:40px;
+  border-top-color: var(--primary-color);
+  margin-top: 40px;
 }
 .woocommerce-info::before {
-    color:  var(--primary-color);
+  color: var(--primary-color);
+}
+.footer-logo {
+    max-width: 230px !important;
+}
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+    padding: 0 !important;
 }
