@@ -6,7 +6,8 @@
             $footer_logo_url = $footer_logo_id ? wp_get_attachment_url($footer_logo_id) : '';
             $footer_logo_alt = get_post_meta($footer_logo_id, '_wp_attachment_image_alt', true);
             ?>
-            <img src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php echo esc_attr($footer_logo_alt); ?>" class="footer-logo" />
+            <a href="<?php echo esc_url(home_url()); ?>">
+                <img src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php echo esc_attr($footer_logo_alt); ?>" class="footer-logo" />
         </div>
         <div class="footer-col">
             <h4>Quick Links</h4>
@@ -72,15 +73,15 @@
         </button>
     </div>
     <nav class="sidebar-nav">
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'search-menu', // Same menu location
-                'container'      => false,
-                'menu_class'     => 'nav-list-phone',
-                'menu_id'        => 'footer-phone-list' // Different unique ID
-            ));
-            ?>
-        </nav>
+        <?php
+        wp_nav_menu(array(
+            'theme_location' => 'search-menu', // Same menu location
+            'container'      => false,
+            'menu_class'     => 'nav-list-phone',
+            'menu_id'        => 'footer-phone-list' // Different unique ID
+        ));
+        ?>
+    </nav>
 </aside>
 
 <!-- Search Popup Modal -->
@@ -91,13 +92,19 @@
             <button class="close-search" id="closeSearch">&times;</button>
         </div>
         <div class="search-body">
-            <form action="/search" method="get" class="search-form">
+            <form action="<?php echo esc_url(home_url('/')); ?>" method="get" class="search-form">
                 <input
                     type="text"
-                    name="q"
+                    name="s"
+                    value="<?php echo get_search_query(); ?>"
                     placeholder="Search Products..."
-                    class="search-input"
+                    class="search-input search-input-field"
                     autofocus />
+                <input type="hidden" name="post_type" value="product" />
+
+                <div id="search-results-container"></div>
+
+
                 <button type="submit" class="search-submit-btn">
                     <svg
                         width="24"

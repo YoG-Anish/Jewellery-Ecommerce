@@ -37,6 +37,8 @@ do_action('woocommerce_before_main_content');
  * @hooked woocommerce_product_taxonomy_archive_header - 10
  */
 do_action('woocommerce_shop_loop_header'); ?>
+
+
 <section class="shop-section-woo">
 	<div class="container">
 		<aside class="shop-filters-wrapper">
@@ -90,6 +92,7 @@ do_action('woocommerce_shop_loop_header'); ?>
 		</div>
 	</div>
 </section>
+
 <?php
 /**
  * Hook: woocommerce_after_main_content.

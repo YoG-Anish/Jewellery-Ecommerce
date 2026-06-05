@@ -599,3 +599,21 @@ a {
 .footer-col ul li a.active::after {
   width: 100%;
 }
+
+/* Blog Post Styles anish maka */
+.single-post-container {
+    padding: 60px 0;
+}
+.post-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.post-featured-image img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 30px;
+}
+.post-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}

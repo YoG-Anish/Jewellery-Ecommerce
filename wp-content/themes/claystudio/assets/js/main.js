@@ -138,4 +138,3 @@ document.addEventListener('click', function(e) {
         qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
     }
 });
-

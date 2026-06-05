@@ -70,6 +70,33 @@ function create_slider_post_type() {
         )
     );
 
+    //claystudio blog cpt
+    register_post_type( 'clay_blog',
+        array(
+            'labels' => array(
+                'name' => __( 'Blogs' ),
+                'singular_name' => __( 'Blog' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
+            'show_in_rest' => true,
+            'menu_icon' => 'dashicons-welcome-write-blog'
+        )
+    );
+
+    //blog category taxonomy
+    register_taxonomy(
+        'blog_category',
+        'clay_blog',
+        array(
+            'label' => __( 'Blog Categories' ),
+            'rewrite' => array( 'slug' => 'blog-category' ),
+            'hierarchical' => true,
+            'show_in_rest' => true,
+        )
+    );
+
 }
 add_action( 'init', 'create_slider_post_type' );
 
