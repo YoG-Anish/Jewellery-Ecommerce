@@ -75,7 +75,7 @@
     <nav class="sidebar-nav">
         <?php
         wp_nav_menu(array(
-            'theme_location' => 'search-menu', // Same menu location
+            'theme_location' => 'header-menu', // Same menu location
             'container'      => false,
             'menu_class'     => 'nav-list-phone',
             'menu_id'        => 'footer-phone-list' // Different unique ID

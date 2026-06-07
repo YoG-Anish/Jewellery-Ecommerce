@@ -51,27 +51,6 @@
   margin: 0;
 }
 
-.wishlist-icon-link {
-    position: relative;
-    display: inline-block;
-    color: currentColor;
-    text-decoration: none;
-}
-
-.wishlist-count {
-    position: absolute;
-    top: -5px;
-    right: -10px;
-    background: #000; /* You can change this to your theme color */
-    color: #fff;
-    font-size: 10px;
-    font-weight: bold;
-    padding: 2px 5px;
-    border-radius: 50%;
-    min-width: 14px;
-    text-align: center;
-    line-height: 1;
-}
 /* Aditional Css */
 
 .shop-all-collection-section {
@@ -680,8 +659,13 @@ a.button.product_type_simple {
   /* Hiding the button initially */
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
-  transform: translateY(10px); /* Optional: button slides up slightly when appearing */
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease,
+    transform 0.4s ease;
+  transform: translateY(
+    10px
+  ); /* Optional: button slides up slightly when appearing */
 
   /* Your Styles */
   font-weight: 400 !important;
@@ -694,10 +678,10 @@ a.button.product_type_simple {
   letter-spacing: 0.1em !important;
   border-radius: 0 !important;
   margin: 0 !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 a.button.product_type_simple:hover {
-	background: var(--primary-color) !important;
+  background: var(--primary-color) !important;
   color: var(--white) !important;
 }
 
@@ -728,8 +712,41 @@ section.trusted-section .container {
   color: var(--primary-color);
 }
 .footer-logo {
-    max-width: 230px !important;
+  max-width: 230px !important;
 }
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
-    padding: 0 !important;
+  padding: 0 !important;
+}
+.no-arrivals-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px; /* Made slightly bigger to fit the button */
+  width: 100%;
+  background-color: var(--bg-light);
+  border-radius: 12px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+/* This nested div ensures the text and button stay centered together */
+.no-arrivals-content {
+  display: flex;
+  flex-direction: column; /* Stacks items vertically */
+  align-items: center; /* Centers them horizontally */
+  gap: 25px; /* Adds space between the text and the button */
+}
+
+.no-arrivals-container p {
+  font-size: 18px;
+  color: var(--text-grey);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0; /* Remove default margins to keep gap precise */
+}
+
+/* Ensure the button looks good inside this specific container */
+.no-arrivals-container .btn {
+  margin: 0;
+  min-width: 200px;
 }
