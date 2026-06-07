@@ -72,3 +72,664 @@
     text-align: center;
     line-height: 1;
 }
+/* Aditional Css */
+
+.shop-all-collection-section {
+  padding: calc(var(--nav-height) + 30px) 0 30px;
+}
+
+li.product-category.product a img {
+  aspect-ratio: 1 / 1 !important;
+}
+
+/* 1. Base Setup: Remove default WooCommerce floats and CLEARFIX */
+.woocommerce ul.products.columns-4 {
+  display: grid !important;
+  gap: 30px;
+}
+
+/* FIX: Hide the "ghost" spaces created by ::before and ::after */
+.woocommerce ul.products.columns-4::before,
+.woocommerce ul.products.columns-4::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Reset item widths */
+.woocommerce ul.products.columns-4 li.product {
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+  clear: none !important;
+}
+
+/* 2. Desktop: 3 Columns */
+@media (min-width: 1025px) {
+  .woocommerce ul.products.columns-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 3. Tablet: 2 Columns */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .woocommerce ul.products.columns-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 4. Mobile: 1 Column */
+@media (max-width: 767px) {
+  .woocommerce ul.products.columns-4 {
+    grid-template-columns: 1fr;
+  }
+}
+.woocommerce-loop-category__title {
+  text-align: center;
+  padding: 16px 0 0 !important;
+  text-transform: uppercase;
+  font-size: 20px !important;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+mark.count {
+  background: transparent !important;
+}
+.woocommerce-loop-category__title:hover,
+.woocommerce-loop-category__title:hover mark.count {
+  color: var(--primary-color);
+}
+/* 1. Container Setup */
+.product-category a {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Standard safety */
+  text-decoration: none;
+}
+
+/* 2. The Image - Locked Box */
+.product-category img {
+  width: 100%;
+  /* This locks the box size so it CANNOT grow bottom */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  /* This clips the zoom strictly to the 1:1 box */
+  clip-path: inset(0);
+
+  /* Ensure it scales from the dead center */
+  transform-origin: center center;
+
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+/* 3. The Title - Create a physical gap */
+.woocommerce-loop-category__title {
+  margin: 0 !important;
+  padding: 16px 0px 0px !important; /* This padding creates a "safe zone" */
+  background: #fff; /* Matches background to ensure no overlap visual glitches */
+  position: relative;
+  z-index: 2;
+}
+
+/* 4. The Hover Effect */
+.product-category img:hover {
+  transform: scale(1.05);
+}
+/*  */
+
+.shop-header {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--heading-color);
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  margin: 40px 0 60px;
+}
+/*  */
+/* Product columns;  */
+
+/*  */
+/*  */
+/* 1. Switcher Button Styling */
+.shop-layout-controls {
+  display: flex;
+  justify-content: flex-start; /* Align to the right */
+  margin-bottom: 10px;
+}
+
+.grid-switcher {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.switch-btn {
+  background: #fff;
+  border: none;
+  border-right: 1px solid #ddd;
+  padding: 12px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.switch-btn:last-child {
+  border-right: none;
+}
+
+.switch-btn.active {
+  background: #f9f9f9;
+}
+
+.switch-btn .lines {
+  display: flex;
+  gap: 3px;
+}
+
+.switch-btn .lines span {
+  width: 2px;
+  height: 14px;
+  background: #999;
+  display: block;
+}
+
+.switch-btn.active .lines span {
+  background: #222; /* High contrast for active state */
+}
+
+/* 2. The Grid System */
+.woocommerce ul.products {
+  display: grid !important;
+  gap: 30px;
+  margin: 0 0 3em 0 !important;
+  transition: opacity 0.3s ease;
+}
+
+/* Reset WooCommerce default floats/widths */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after {
+  content: none !important;
+}
+
+.woocommerce ul.products li.product {
+  width: 100% !important;
+  margin: 0 !important;
+  float: none !important;
+  clear: none !important; /* Fixes WooCommerce "first" class clearing */
+}
+
+/* Desktop Column Classes */
+@media (min-width: 1025px) {
+  .products.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .products.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .products.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet: Force 2 columns */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .shop-layout-controls {
+    display: none;
+  }
+}
+
+/* Mobile: Force 1 column */
+@media (max-width: 767px) {
+  .woocommerce ul.products {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+  .shop-layout-controls {
+    display: none;
+  }
+}
+
+/* 3. Image Hover & Consistency */
+.woocommerce ul.products li.product a img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.woocommerce ul.products li.product:hover a img {
+  transform: scale(1);
+}
+
+.woocommerce ul.products li.product a {
+  display: block;
+  overflow: hidden;
+}
+
+.woocommerce .woocommerce-ordering {
+  margin: 0 0 1.5em;
+}
+
+.woocommerce .woocommerce-result-count {
+  margin: 0;
+  line-height: 1.8;
+}
+
+/* Hidden Side Bar  */
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .shop-filters-wrapper {
+    flex: 0 0 25%; /* Sidebar takes 25% width */
+    max-width: 250px;
+  }
+  .product-loop-wrapper {
+    flex: 1;
+  }
+  /* Hide the mobile toggle button on desktop if needed */
+  .wpc-filters-open-button-container {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  section.shop-section-woo .container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Mobile Sidebar Layout (Under 767px) */
+@media (max-width: 767px) {
+  .shop-filters-wrapper {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    z-index: 9999;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    padding: 20px;
+    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .shop-filters-wrapper.active {
+    left: 0;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .close-sidebar {
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .product-loop-wrapper {
+    width: 100%;
+  }
+}
+
+/* Hide mobile controls on desktop */
+@media (min-width: 768px) {
+  .mobile-filter-trigger,
+  .mobile-sidebar-header,
+  .sidebar-overlay {
+    display: none;
+  }
+}
+
+/* Single Page */
+
+.product-single-wrapper {
+  margin-top: calc(var(--nav-height));
+}
+
+h1.product_title.entry-title {
+  font-size: 24px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+}
+
+.woocommerce div.product div.summary span.woocommerce-Price-amount.amount bdi {
+  color: var(--heading-color);
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.summary.entry-summary .price {
+  margin-bottom: 8px;
+}
+
+.woocommerce-product-details__short-description {
+  margin-bottom: 48px;
+  color: rgb(44 52 61 / 70%);
+}
+
+form.cart {
+  display: flex;
+  align-items: center;
+}
+
+button.single_add_to_cart_button.button.alt {
+  padding: 17px 32px;
+  border-radius: 0;
+  width: 100%;
+  max-width: 340px;
+  background: var(--primary-color);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+button.single_add_to_cart_button.button.alt:hover {
+  background: var(--primary-color);
+  opacity: 0.96;
+}
+
+button.minus,
+button.plus {
+  background: transparent !important;
+  width: 30px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+.cart .quantity {
+  border-radius: 0;
+  height: 46px;
+  border: 2px solid #e9e9e9;
+  margin: 0 8px 0 0 !important;
+}
+
+.woocommerce .quantity .qty {
+  width: 40px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  border: 0;
+}
+
+.product_meta {
+  font-size: 14px;
+  color: var(--heading-color);
+}
+
+.product_meta a:hover {
+  opacity: 0.7;
+}
+
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  background: var(--bg-light);
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+  font-weight: 500;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.woocommerce-tabs.wc-tabs-wrapper {
+  border-bottom: 2px solid #e9e9e9;
+}
+.woocommerce div.product .woocommerce-tabs .panel p {
+  line-height: 1.8;
+}
+
+.woocommerce div.product .woocommerce-tabs .panel h2 {
+  font-weight: 400;
+  font-size: 20px;
+  text-transform: uppercase;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.comment-reply-title {
+  line-height: 1.8;
+}
+
+span.required-field-message,
+span.required {
+  color: var(--primary-color);
+}
+
+p.comment-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px !important;
+}
+
+form#commentform label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+.comment-form-rating .stars {
+  color: #ffd700;
+}
+
+p.comment-form-comment textarea {
+  height: 120px !important;
+}
+/* Base Styles */
+p.comment-form-comment textarea,
+p.comment-form-author input,
+p.comment-form-email input {
+  border-radius: 0px !important;
+  max-width: 500px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400; /* Fixed typo */
+  padding: 12px;
+  border: 1px solid var(--heading-color);
+  margin-bottom: 8px;
+  outline: none;
+  transition: box-shadow 0.1s ease-in-out; /* Smooths the focus effect */
+}
+
+/* Focus Styles */
+p.comment-form-comment textarea:focus,
+p.comment-form-author input:focus,
+p.comment-form-email input:focus {
+  outline: none; /* Removes browser default ring */
+  border: 1px solid var(--heading-color); /* Keep the base border */
+
+  /* This adds a 1px shadow on the inside, which combines with 
+       the 1px border to look exactly like a 2px border */
+  box-shadow: inset 0 0 0 1px var(--heading-color);
+}
+
+p.comment-form-cookies-consent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+p.comment-form-cookies-consent label {
+  margin: 0 !important;
+}
+
+p.form-submit {
+}
+p.form-submit .submit {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  color: var(--white) !important;
+  background: var(--primary-color) !important;
+  padding: 12px 32px !important;
+  border-radius: 0 !important;
+  margin-top: 16px !important;
+}
+p.form-submit .submit:hover {
+  opacity: 0.9;
+}
+section.related.products {
+  margin-top: 60px;
+}
+
+section.related.products h2 {
+  font-weight: 400;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin: 0 0 48px;
+  text-align: center;
+  color: var(--heading-color);
+  letter-spacing: 0.2em;
+}
+
+section.related.products .woocommerce-loop-product__title {
+  text-align: left;
+}
+.woocommerce-loop-product__title {
+  line-height: 1.3;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+}
+span.woocommerce-Price-amount.amount bdi {
+  color: var(--heading-color);
+}
+li.product.type-product {
+  position: relative;
+  container-type: inline-size;
+}
+
+a.button.product_type_simple {
+  font-weight: 400 !important;
+  background: var(--primary-color) !important;
+  color: white !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  width: 100% !important;
+  text-align: center !important;
+  padding: 12px 32px !important;
+  letter-spacing: 0.1em !important;
+  border-radius: 0 !important;
+}
+/* 1. Set the container to track width */
+.woocommerce ul.products li.product {
+  position: relative;
+  container-type: inline-size;
+  overflow: hidden; /* Keeps the darken effect clean */
+}
+
+/* 2. Image settings + Transition for the darken effect */
+.woocommerce ul.products li.product a img {
+  aspect-ratio: 274 / 356 !important;
+  margin: 0;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: filter 0.4s ease; /* Smoothly darkens the image */
+}
+
+/* 3. Darken image on hover */
+.woocommerce ul.products li.product:hover a img {
+  filter: brightness(0.8); /* Adjust 0.8 to 0.7 for darker, 0.9 for lighter */
+}
+
+/* 4. The Button (Hidden by default) */
+a.button.product_type_simple {
+  position: absolute;
+  top: calc(129.93cqw - 60px) !important;
+  left: 5%;
+  width: 90% !important;
+  z-index: 10;
+
+  /* Hiding the button initially */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+  transform: translateY(10px); /* Optional: button slides up slightly when appearing */
+
+  /* Your Styles */
+  font-weight: 400 !important;
+  background: var(--white) !important;
+  color: var(--heading-color) !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+  padding: 12px 10px !important;
+  letter-spacing: 0.1em !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+a.button.product_type_simple:hover {
+	background: var(--primary-color) !important;
+  color: var(--white) !important;
+}
+
+/* 5. Show button when hovering over the product item */
+.woocommerce ul.products li.product:hover a.button.product_type_simple {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Returns to original position */
+}
+
+/* 6. Adjust Title/Price spacing */
+.woocommerce-loop-product__title {
+  margin-top: 15px !important;
+}
+section.trusted-section .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.wpc-filters-range-inputs .ui-slider-horizontal .ui-slider-range {
+  background-color: var(--primary-color) !important;
+}
+.woocommerce-info {
+  border-top-color: var(--primary-color);
+  margin-top: 40px;
+}
+.woocommerce-info::before {
+  color: var(--primary-color);
+}
+.footer-logo {
+    max-width: 230px !important;
+}
+a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+    padding: 0 !important;
+}

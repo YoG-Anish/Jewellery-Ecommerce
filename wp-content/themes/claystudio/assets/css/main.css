@@ -184,6 +184,7 @@ a {
 /* Active state: Keep width at 100% */
 .main-nav a.active::after {
   width: 100%;
+  padding: 12px 0;
 }
 
 .header-icons {
@@ -573,6 +574,22 @@ a {
     display: block;
     margin: 10px auto;
   }
+}
+section.shop-section-woo {
+  padding: 80px 0;
+}
+
+section.shop-section-woo .container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 30px;
+}
+.woocommerce ul.products li.product a img {
+  aspect-ratio: 274/356;
+  margin: 0;
+}
+.woocommerce ul.products li.product .onsale {
+  margin: 0;
 }
 .footer-col ul li a {
   position: relative; /* CRITICAL: This contains the ::after line */

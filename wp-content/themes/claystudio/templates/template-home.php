@@ -27,7 +27,7 @@ get_header(); ?>
                                     $image_right = get_field('image_right');
                                     ?>
                                     <div
-                                        class="hero-img-left"
+                                       class="hero-img-left"
                                         style="
                           background-image: url('<?php echo esc_url($image_left['url']); ?>');
                         "></div>
