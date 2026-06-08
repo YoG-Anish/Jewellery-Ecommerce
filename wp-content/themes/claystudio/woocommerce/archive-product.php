@@ -41,7 +41,6 @@ do_action('woocommerce_shop_loop_header'); ?>
 <div class="sidebar-overlay"></div>
 
 <section class="shop-section-woo">
-	<h2 class="shop-header">All Product</h2>
 	<div class="container">
 		<aside class="shop-filters-wrapper">
 			<div class="mobile-sidebar-header">
