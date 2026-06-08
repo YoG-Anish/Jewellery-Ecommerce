@@ -223,3 +223,49 @@ main.new-arrivals-page .container h1 {
   font-size: 14px;
   color: var(--primary-color);
 }
+main.search-results-page {
+  padding: calc(var(--nav-height) + 60px) 0 60px;
+}
+
+/* Search page  */
+.search-results-page .section-header {
+  text-align: center;
+}
+.search-results-page .section-header h1 {
+  font-size: 38px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  margin: 0 0 8px;
+}
+.search-results-page .section-header p {
+  margin: 0 0 16px;
+  line-height: 1.8;
+}
+
+.search-box-wrapper {
+  max-width: 500px;
+  margin: auto;
+}
+.search-box-wrapper .search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: none;
+}
+.search-box-wrapper .search-form button {
+  padding: 12px 17px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  background: var(--primary-color);
+  width: 100%;
+  border-color: var(--primary-color);
+  box-shadow: none;
+  outline: none;
+  color: var(--white);
+  cursor: pointer;
+}
