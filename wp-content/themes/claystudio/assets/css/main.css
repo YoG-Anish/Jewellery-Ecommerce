@@ -563,6 +563,9 @@ a {
   color: var(--white);
   border: 2px solid var(--primary-color);
 }
+a.btn.btn-outline-dark:hover {
+  color: white !important;
+}
 
 @media (max-width: 768px) {
   .error-content h1 {
@@ -633,20 +636,94 @@ section.shop-section-woo .container {
     line-height: 1.6;
   padding: calc(var(--nav-height) + 60px) 0 60px;
 }
+
+.single-post-container .blog-category {
+  position: relative;
+  top: 0;
+  left: 0;
+  padding: 0;
+}
+.single-post-container .blog-category + .blog-category {
+  padding-left: 20px;
+}
+.single-post-container .blog-date {
+  margin-top: 8px;
+}
 .post-title {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
 }
 .post-featured-image img {
   width: 100%;
   height: auto;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 .post-content p {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   line-height: 1.6;
+  font-size: 16px;
+}
+.wp-block-heading {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 16px 0 8px;
+}
+.wp-block-image figure,
+.wp-block-image figure img {
+  width: 100%;
+}
+.post-content a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.wp-block-list {
+  margin: 0px 0 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.wp-block-list li strong {
+  font-weight: 500;
 }
 
+.wp-block-quote.is-layout-flow.wp-block-quote-is-layout-flow {
+  padding: 24px;
+  border: 2px solid #9999997d;
+  border-radius: 6px;
+  text-align: center;
+  margin: 24px 0;
+}
+.wp-block-quote.is-layout-flow.wp-block-quote-is-layout-flow
+  .wp-block-paragraph {
+  font-style: italic;
+  padding: 0;
+  margin: auto;
+  font-size: 16px;
+  letter-spacing: 0.15em;
+  text-transform: capitalize;
+  max-width: 720px;
+}
+.wp-block-image figure img {
+  aspect-ratio: 6/3;
+  object-position: center;
+  object-fit: cover;
+  margin: 0 0 16px;
+}
+nav.post-navigation {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 0;
+  gap: 30px;
+}
+nav.post-navigation a:hover {
+  color: var(--primary-color);
+}
 /* Force the split layout for your blocks */
 .splide__slide .wp-block-columns {
   display: flex;

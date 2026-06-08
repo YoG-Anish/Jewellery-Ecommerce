@@ -61,7 +61,14 @@ get_header();
                         </article>
                     <?php endwhile; ?>
 
-                    <!-- Pagination -->
+                    
+                <?php
+                    wp_reset_postdata();
+                else : ?>
+                    <p>No blog posts found.</p>
+                <?php endif; ?>
+            </div>
+            <!-- Pagination -->
                     <div class="blog-pagination">
                         <?php
                         echo paginate_links([
@@ -73,12 +80,6 @@ get_header();
                         ]);
                         ?>
                     </div>
-                <?php
-                    wp_reset_postdata();
-                else : ?>
-                    <p>No blog posts found.</p>
-                <?php endif; ?>
-            </div>
         </div>
     </section>
 </main>
