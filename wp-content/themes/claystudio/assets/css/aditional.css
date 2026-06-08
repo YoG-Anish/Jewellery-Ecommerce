@@ -122,7 +122,8 @@
   align-items: center;
 }
 
-.blog-pagination a {
+.blog-pagination a,
+.blog-pagination span {
   text-decoration: none;
   color: #222;
   padding: 8px 16px;
@@ -132,7 +133,8 @@
 }
 
 .blog-pagination a.active,
-.blog-pagination a:hover {
+.blog-pagination a:hover,
+.blog-pagination span {
   background: #222;
   color: #fff;
   border-color: #222;
