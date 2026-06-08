@@ -27,7 +27,7 @@ get_header(); ?>
                                     $image_right = get_field('image_right');
                                     ?>
                                     <div
-                                       class="hero-img-left"
+                                        class="hero-img-left"
                                         style="
                           background-image: url('<?php echo esc_url($image_left['url']); ?>');
                         "></div>
@@ -91,20 +91,18 @@ get_header(); ?>
             </div>
         <?php endif; ?>
 
-        <!-- 2. DYNAMIC: Product Categories (Limited to 3) -->
         <?php
         $uncategorized_term = get_term_by('slug', 'uncategorized', 'product_cat');
         $exclude_id = $uncategorized_term ? $uncategorized_term->term_id : 0;
         $categories = get_terms([
             'taxonomy'   => 'product_cat',
             'hide_empty' => true,
-            'number'     => 4, // We take 3 categories, + 1 ACF = 4 items total
-            'exclude'    => [$exclude_id] 
+            'number'     => 4,
+            'exclude'    => [$exclude_id]
         ]);
 
         foreach ($categories as $cat) {
             $link = get_term_link($cat);
-            // Get WC Thumbnail
             $thumbnail_id = get_term_meta($cat->term_id, 'thumbnail_id', true);
             $image_url = $thumbnail_id ? wp_get_attachment_url($thumbnail_id) : '';
         ?>
@@ -258,10 +256,10 @@ get_header(); ?>
                             <h3 class="product-title"><?php the_title(); ?></h3>
                             <div class="price">
                                 <?php if ($product->is_on_sale()) : ?>
-                                    <span class="current-price"><?php echo $product->get_sale_price(); ?></span>
-                                    <span class="old-price"><?php echo $product->get_regular_price(); ?></span>
+                                    <span class="current-price"><?php echo wc_price($product->get_sale_price()); ?></span>
+                                    <span class="old-price"><?php echo wc_price($product->get_regular_price()); ?></span>
                                 <?php else : ?>
-                                    <span class="current-price"><?php echo $product->get_price(); ?></span>
+                                    <span class="current-price"><?php echo wc_price($product->get_price()); ?></span>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -288,7 +286,12 @@ get_header(); ?>
                         <div class="product-info">
                             <h3 class="product-title"><?php the_title(); ?></h3>
                             <div class="price">
-                                <span class="current-price"><?php echo $product->get_price(); ?></span>
+                                <?php if ($product->is_on_sale()) : ?>
+                                    <span class="current-price"><?php echo wc_price($product->get_sale_price()); ?></span>
+                                    <span class="old-price"><?php echo wc_price($product->get_regular_price()); ?></span>
+                                <?php else : ?>
+                                    <span class="current-price"><?php echo wc_price($product->get_price()); ?></span>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -336,20 +339,24 @@ get_header(); ?>
     <section class="instagram-posts">
         <div class="container">
             <span class="sub-heading insta-text-center">
-                follow us on the 'gram 🡺
+                <?php echo get_field('instagram_section_title'); ?>
             </span>
             <div class="instagram-image-posts">
-                <img
-                    src="https://scontent.cdninstagram.com/v/t51.82787-15/703890813_18008078030877092_8983308537958157078_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=103&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=rWpc6amF0tAQ7kNvwEMno5G&_nc_oc=AdpxQTcxp2IbCmcxX2DdBvw-4EJUWGaoyIlpjYO11JzT5KSWIMG7J-oPi5JIKdYVCns&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=YxsLvNS3Hs-eyCOGfnGZvA&_nc_tpa=Q5bMBQEf9pluoh2YoizUBDewh01boa0UtxBd_uhjfCTXnzL6IGCy2-rSFJte7PLusSeqGl-fNFTG2wFF&oh=00_Af7zJa_vQhi4Tn351o2RYaap4EXA2vIbg66EcAXj_e68eA&oe=6A1F25A4"
-                    alt="" /><img
-                    src="https://scontent.cdninstagram.com/v/t51.82787-15/703503419_18008187932877092_4311261171078377716_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=603e2gU6t7wQ7kNvwEIJuKk&_nc_oc=AdpmM3mPihbx8bB9bhE7m9fRioz9E6cFLBS_XJKQdgzluN-OEVS3MWTMcwk5SWCWTQI&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=YxsLvNS3Hs-eyCOGfnGZvA&_nc_tpa=Q5bMBQFGNDwQu2I5ypTBdwac1mvYX3WMPrTpQbco4CADitVouQWtSDl1IR5JnueUA1PROPfvhhsHqm6l&oh=00_Af51vifQCCiGC_O4xVP2bfoRKAal629ODLUuWynTe3dtqg&oe=6A1F0FA8"
-                    alt="" /><img
-                    src="https://scontent.cdninstagram.com/v/t51.82787-15/703001725_18008118161877092_4578032661778996555_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=107&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=1yq8YZrphwgQ7kNvwEjMwhj&_nc_oc=AdqNHxr8f0ICbwJy5iBnzRUxi52q76sW7thu7XTx1sDF_X78cZLiMrSwjxG5Rz-gJpc&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=YxsLvNS3Hs-eyCOGfnGZvA&_nc_tpa=Q5bMBQEsYdD-U_xlCVf1DD5u7OrxHo9WDVqZgHck-QOG_yXyAuYRlMm34cq7vq3pEynJtVhSujlilXFy&oh=00_Af531qvpEi0IyVZYtixmN8Lb60SxHaGKCEvu41vq7rEuBA&oe=6A1F315C"
-                    alt="" /><img
-                    src="https://scontent.cdninstagram.com/v/t51.82787-15/702696504_18008006540877092_2198533988480741184_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=inQEwN47OeMQ7kNvwFCxQz0&_nc_oc=AdoI-q_jffyPlEIj8kgB_scx5jUM3pOFqOLA58kVgHn3gg4LNM8ARLV9H8iKE6H1Pdk&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=YxsLvNS3Hs-eyCOGfnGZvA&_nc_tpa=Q5bMBQHN1mj4EI4URTUvwMYVkkboRnqATTxop0sRtqYY_PZ9X8WpqLyvNMW5IPo0rlM_jf40Y8JWurq4&oh=00_Af46Q_dLvXsgBRQgU7aaYGLkWw_EtwLxtlBtLkw24gz-6A&oe=6A1F1B15"
-                    alt="" /><img
-                    src="https://scontent.cdninstagram.com/v/t51.82787-15/702703506_18007752323877092_561106893383955059_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=Vc9enJbCFlsQ7kNvwHWrqfx&_nc_oc=AdpOQKLc56ez67oCWgE69FnrAaYj5BoaM_JDh9nnqH8q46hDOY7-ON7iPgulmT9bM4I&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&edm=ANo9K5cEAAAA&_nc_gid=YxsLvNS3Hs-eyCOGfnGZvA&_nc_tpa=Q5bMBQE8ECbXaywPwJcRI18LcFTLuVGalUmOHoa7oB-NrzmYlhSi6FToNZZfsE6pqhVcDVLiDag8aO27&oh=00_Af6n8X0AqJWJAMAXcSUZVm1ID8Z8WyaOcC-G0LHcG2HLHA&oe=6A1F0C9A"
-                    alt="" />
+                <?php
+                $insta_images = [
+                    'insta_image1',
+                    'insta_image2',
+                    'insta_image3',
+                    'insta_image4',
+                    'insta_image5'
+                ];
+                foreach ($insta_images as $field_name) {
+                    $image = get_field($field_name);
+                    if ($image) {
+                        echo '<div class="insta-image"><img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '"/></div>';
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>

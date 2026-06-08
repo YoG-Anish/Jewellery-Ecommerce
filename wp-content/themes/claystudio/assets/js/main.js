@@ -138,8 +138,6 @@ document.addEventListener('click', function(e) {
         qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
     }
 });
-<<<<<<< HEAD
-=======
 
 document.addEventListener('DOMContentLoaded', function () {
     // Add a listener that logs EVERYTHING to the console
@@ -158,4 +156,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
->>>>>>> origin/backend-new

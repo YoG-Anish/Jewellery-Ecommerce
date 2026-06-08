@@ -54,8 +54,6 @@ jQuery(document).ready(function ($) {
     $('.switch-btn[data-cols="' + savedGrid + '"]').trigger("click");
   }
 });
-<<<<<<< HEAD
-=======
 
 jQuery(document).ready(function ($) {
   // Open Sidebar
@@ -74,4 +72,3 @@ jQuery(document).ready(function ($) {
     $("body").removeClass("sidebar-opened");
   });
 });
->>>>>>> origin/backend-new

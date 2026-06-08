@@ -617,7 +617,6 @@ section.shop-section-woo .container {
 
 /* Blog Post Styles anish maka */
 .single-post-container {
-<<<<<<< HEAD
     padding: 60px 0;
 }
 .post-title {
@@ -632,7 +631,6 @@ section.shop-section-woo .container {
 .post-content p {
     margin-bottom: 20px;
     line-height: 1.6;
-=======
   padding: calc(var(--nav-height) + 60px) 0 60px;
 }
 .post-title {
@@ -830,5 +828,4 @@ span.wpc-term-swatch-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
->>>>>>> origin/backend-new
 }
