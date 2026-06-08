@@ -85,5 +85,7 @@ function customizer_section_header($wp_customize) {
         'settings' => 'error_404_description',
         'type' => 'textarea',
     )));
+
+    
 }
 add_action('customize_register', 'customizer_section_header');

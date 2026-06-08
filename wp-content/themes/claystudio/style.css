@@ -51,12 +51,6 @@
   margin: 0;
 }
 
-/* Aditional Css */
-
-.shop-all-collection-section {
-  padding: calc(var(--nav-height) + 30px) 0 30px;
-}
-
 .wishlist-icon-link {
   position: relative;
   display: inline-block;
@@ -305,16 +299,6 @@ mark.count {
 }
 
 /* 3. Image Hover & Consistency */
-.woocommerce ul.products li.product a img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.woocommerce ul.products li.product:hover a img {
-  transform: scale(1);
-}
 .shop-all-collection-section .woocommerce ul.products li.product a img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -757,38 +741,6 @@ section.trusted-section .container {
 a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
   padding: 0 !important;
 }
-.no-arrivals-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 450px; /* Made slightly bigger to fit the button */
-  width: 100%;
-  background-color: var(--bg-light);
-  border-radius: 12px;
-  margin: 40px 0;
-  text-align: center;
-}
-
-/* This nested div ensures the text and button stay centered together */
-.no-arrivals-content {
-  display: flex;
-  flex-direction: column; /* Stacks items vertically */
-  align-items: center; /* Centers them horizontally */
-  gap: 25px; /* Adds space between the text and the button */
-}
-
-.no-arrivals-container p {
-  font-size: 18px;
-  color: var(--text-grey);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 0; /* Remove default margins to keep gap precise */
-}
-
-/* Ensure the button looks good inside this specific container */
-.no-arrivals-container .btn {
-  margin: 0;
-  min-width: 200px;
 
 .wpc-term-item-content-wrapper input {
   width: auto !important;
@@ -855,5 +807,3 @@ form.woocommerce-ordering .orderby:focus,
 form.woocommerce-ordering .orderby:active {
   box-shadow: none !important;
 }
-
- }
