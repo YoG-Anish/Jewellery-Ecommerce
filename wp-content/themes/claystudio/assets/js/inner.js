@@ -22,20 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Accordion
+// Accordion (Multi-open version)
 document.querySelectorAll(".accordion-header").forEach((button) => {
   button.addEventListener("click", () => {
     const accordionItem = button.parentElement;
-    const isOpen = accordionItem.classList.contains("active");
 
-    // Optional: Close all other items (Single-open behavior)
-    document.querySelectorAll(".accordion-item").forEach((item) => {
-      item.classList.remove("active");
-    });
-
-    // Toggle current item
-    if (!isOpen) {
-      accordionItem.classList.add("active");
-    }
+    // Simply toggle the "active" class on the clicked item
+    accordionItem.classList.toggle("active");
   });
 });
 

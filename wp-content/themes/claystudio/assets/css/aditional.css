@@ -190,6 +190,34 @@ span.xoo-wsch-bki.xoo-wsc-icon-shopping-bag1.xoo-wsch-icon {
   cursor: pointer;
 }
 
-.wc-block-components-checkbox__input {
+.wc-block-components-checkbox__input,
+.wc-block-components-radio-control__input {
   padding: 0;
+}
+/* New Arival page  */
+main.new-arrivals-page {
+  padding: calc(var(--nav-height) + 60px) 0 60px;
+}
+
+main.new-arrivals-page .container {
+  text-align: center;
+}
+main.new-arrivals-page .container h1 {
+  font-size: 30px;
+  color: var(--heading-color);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+
+.wpcf7-not-valid-tip {
+  text-align: right;
+}
+.wpcf7-response-output {
+  margin: 0 !important;
+  border: 0 !important;
+  text-align: center;
+  font-size: 14px;
+  color: var(--primary-color);
 }
