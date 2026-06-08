@@ -54,44 +54,34 @@ jQuery(document).ready(function ($) {
     $('.switch-btn[data-cols="' + savedGrid + '"]').trigger("click");
   }
 });
-
 document.addEventListener("DOMContentLoaded", () => {
-  // --- SHOP FILTER SIDEBAR LOGIC ---
   const shopTrigger = document.getElementById("shopFilterTrigger");
   const shopSidebar = document.getElementById("shopSidebar");
   const shopOverlay = document.getElementById("shopSidebarOverlay");
   const shopCloseBtn = document.getElementById("closeShopSidebar");
 
-  // Debugging: Check if elements are found
-  console.log("Trigger:", shopTrigger);
-  console.log("Sidebar:", shopSidebar);
-  console.log("Overlay:", shopOverlay);
-
   if (shopTrigger && shopSidebar && shopOverlay) {
     const openShopSidebar = (e) => {
       e.preventDefault();
-      console.log("Opening Shop Sidebar");
       shopSidebar.classList.add("shop-active");
       shopOverlay.classList.add("shop-active");
       document.body.classList.add("no-scroll");
+      console.log("Shop sidebar opened");
     };
 
     const closeShopSidebar = () => {
-      console.log("Closing Shop Sidebar");
       shopSidebar.classList.remove("shop-active");
       shopOverlay.classList.remove("shop-active");
       document.body.classList.remove("no-scroll");
+      console.log("Shop sidebar closed");
     };
 
     shopTrigger.addEventListener("click", openShopSidebar);
     if (shopCloseBtn) shopCloseBtn.addEventListener("click", closeShopSidebar);
     shopOverlay.addEventListener("click", closeShopSidebar);
 
-    // Close on Escape key
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeShopSidebar();
     });
-  } else {
-    console.error("Shop Sidebar elements not found! Check your HTML IDs.");
   }
 });
