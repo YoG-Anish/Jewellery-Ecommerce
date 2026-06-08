@@ -21,7 +21,13 @@ global $wp_query; // This line fixes the "undefined variable" error
 
         <div class="container">
             <aside class="shop-filters-wrapper">
-                <?php echo do_shortcode('[fe_widget]'); ?>
+                <div class="mobile-sidebar-header">
+                    <span>Filters</span>
+                    <button type="button" class="close-sidebar">&times;</button>
+                </div>
+                <?php
+                echo do_shortcode('[fe_widget]');
+                ?>
             </aside>
 
             <!-- THIS CLASS MUST MATCH YOUR PLUGIN SETTINGS -->

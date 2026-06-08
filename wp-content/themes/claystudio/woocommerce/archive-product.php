@@ -44,10 +44,14 @@ do_action('woocommerce_shop_loop_header'); ?>
 	<div class="container">
 		<aside class="shop-filters-wrapper">
 			<div class="mobile-sidebar-header">
-				<span>Filters</span>
 				<button type="button" class="close-sidebar">&times;</button>
 			</div>
-			<?php echo do_shortcode('[fe_widget]'); ?>
+			<h2>Filters :</h2>
+			<br>
+			
+			<?php
+			echo do_shortcode('[fe_widget]');
+			?>
 		</aside>
 
 		<div class="product-loop-wrapper">
