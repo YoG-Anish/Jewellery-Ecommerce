@@ -54,3 +54,21 @@ jQuery(document).ready(function ($) {
     $('.switch-btn[data-cols="' + savedGrid + '"]').trigger("click");
   }
 });
+
+jQuery(document).ready(function ($) {
+  // Open Sidebar
+  $(".mobile-filter-trigger").on("click", function (e) {
+    e.preventDefault();
+    $(".shop-filters-wrapper").addClass("active");
+    $(".sidebar-overlay").addClass("active");
+    $("body").addClass("sidebar-opened"); // Prevents background scroll
+  });
+
+  // Close Sidebar (via X button or clicking the dark overlay)
+  $(".close-sidebar, .sidebar-overlay").on("click", function (e) {
+    e.preventDefault();
+    $(".shop-filters-wrapper").removeClass("active");
+    $(".sidebar-overlay").removeClass("active");
+    $("body").removeClass("sidebar-opened");
+  });
+});

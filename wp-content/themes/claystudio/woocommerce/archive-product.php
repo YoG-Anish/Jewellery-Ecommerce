@@ -111,6 +111,7 @@ do_action('woocommerce_shop_loop_header'); ?>
 			} ?>
 		</div>
 	</div>
+	<div class="sidebar-overlays"></div>
 </section>
 <?php
 /**
