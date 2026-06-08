@@ -373,7 +373,7 @@
           <form class="bridal-form">
             <div class="form-grid">
               <div class="field-group">
-                <label for="name" class="field-label">Name</label>
+                <label for="name" class="field-label">Name *</label>
                 <input
                   type="text"
                   id="name"
@@ -394,65 +394,53 @@
                 />
               </div>
 
-              <div class="field-group">
-                <label for="date" class="field-label">Wedding Date</label>
+              <div class="field-group full-width">
+                <label for="address" class="field-label">Address *</label>
                 <input
-                  type="date"
-                  id="date"
-                  name="date"
+                  type="text"
+                  id="address"
+                  name="address"
                   placeholder=" "
                   required
                 />
               </div>
 
               <div class="field-group">
-                <label for="prefer" class="field-label">Do you prefer?</label>
-                <select id="prefer" name="prefer" required>
-                  <option value="" selected disabled></option>
-                  <option value="gold">Gold</option>
-                  <option value="silver">Silver</option>
-                  <option value="rose-gold">Rose Gold</option>
-                </select>
+                <label for="phone" class="field-label">Phone *</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder=" "
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="date" class="field-label">Wedding Date</label>
+                <input type="date" id="date" name="date" placeholder=" " />
               </div>
 
               <div class="field-group full-width">
-                <label for="enquiry" class="field-label">
-                  What does your enquiry relate to?
-                </label>
-
-                <select id="enquiry" name="enquiry" required>
-                  <option value="" selected disabled></option>
-                  <option value="bridal">Bridal</option>
-                  <option value="evening">Evening Wear</option>
-                  <option value="accessories">Accessories</option>
-                </select>
-              </div>
-
-              <div class="field-group full-width">
-                <label for="where" class="field-label">
-                  Where did you hear about us?
-                </label>
-
-                <select id="where" name="where" required>
-                  <option value="" selected disabled></option>
-                  <option value="ig">Instagram</option>
-                  <option value="fb">Facebook</option>
-                  <option value="word">Word of Mouth</option>
-                  <option value="google">Google</option>
-                </select>
-              </div>
-
-              <div class="field-group full-width">
-                <label for="description" class="field-label">
-                  Please leave any further information here
-                </label>
-
+                <label for="information" class="field-label">Information</label>
                 <textarea
-                  id="description"
-                  name="description"
+                  id="information"
+                  name="information"
                   rows="5"
                   placeholder=" "
                 ></textarea>
+              </div>
+
+              <div class="field-group full-width">
+                <label for="file" class="field-label"
+                  >Upload the image or file that you want
+                </label>
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                />
               </div>
             </div>
 
