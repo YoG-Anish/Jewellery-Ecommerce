@@ -49,15 +49,21 @@ get_header();
                                 <?php } ?>
                             </div>
                             <div class="blog-content">
-                                <span class="blog-date"><?php echo get_the_date(); ?></span>
-                                <h3>
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </h3>
-                                <p>
-                                    <?php echo get_the_excerpt(); ?>
-                                </p>
-                                <a href="<?php the_permalink(); ?>" class="btn-underline">Read More</a>
-                            </div>
+                                <div class="blog-content">
+                                    <span class="blog-date">
+                                        <?php echo get_the_date(); ?>
+                                        <span class="read-time" style="margin-left: 10px; color: #888;">
+                                            &bull; <?php echo get_reading_time(get_the_ID()); ?>
+                                        </span>
+                                    </span>
+                                    <h3>
+                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                    </h3>
+                                    <p>
+                                        <?php echo get_the_excerpt(); ?>
+                                    </p>
+                                    <a href="<?php the_permalink(); ?>" class="btn-underline">Read More</a>
+                                </div>
                         </article>
                     <?php endwhile; ?>
                 <?php

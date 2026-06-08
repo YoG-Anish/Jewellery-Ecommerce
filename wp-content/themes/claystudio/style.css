@@ -807,3 +807,40 @@ form.woocommerce-ordering .orderby:focus,
 form.woocommerce-ordering .orderby:active {
   box-shadow: none !important;
 }
+
+/* 1. Style the Title (The clickable area) */
+.wpc-filter-title {
+    cursor: pointer;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    min-width: 150px;
+}
+
+/* 2. Style the hidden content (The dropdown box) */
+.wpc-filter-content {
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    margin-top: 5px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 200px;
+}
+
+/* 3. Logic to hide the content when collapsed */
+.wpc-filter-collapsed .wpc-filter-content {
+    display: none;
+}
+
+/* 4. Add a little arrow icon (optional) */
+.wpc-filter-title::after {
+    content: '▼';
+    font-size: 10px;
+    margin-left: 10px;
+}

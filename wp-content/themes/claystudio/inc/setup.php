@@ -127,3 +127,17 @@ function render_hero_slider($attributes, $content) {
 function render_hero_slide($attributes, $content) {
     return '<li class="splide__slide">' . $content . '</li>';
 }
+
+// content blog reading time function
+function get_reading_time($post_id) {
+    // Get the post content
+    $content = get_post_field('post_content', $post_id);
+    
+    // Count the words
+    $word_count = str_word_count(strip_tags($content));
+    
+    // Average reading speed: 200 words per minute
+    $minutes = ceil($word_count / 200);
+    
+    return $minutes . ' min read';
+}
