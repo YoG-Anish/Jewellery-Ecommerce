@@ -175,7 +175,7 @@ select {
   letter-spacing: 0.2em;
 }
 
-.btn-outline {
+.video-overlay-content .btn-outline {
   display: inline-block;
   padding: 12px 35px;
   border: 2px solid #8c5364;
@@ -189,7 +189,7 @@ select {
   margin: 0;
 }
 
-.btn-outline:hover {
+.video-overlay-content .btn-outline:hover {
   background-color: #8c5364;
   color: white;
   border-color: #8c5364;

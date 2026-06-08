@@ -678,8 +678,8 @@ a.button.product_type_simple {
 a.button.product_type_simple {
   position: absolute;
   top: calc(129.93cqw - 60px) !important;
-  left: 5%;
-  width: 90% !important;
+  left: 20px;
+  width: calc(100% - 40px) !important;
   z-index: 10;
 
   /* Hiding the button initially */
@@ -751,7 +751,7 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
 /* Wishlist  */
 .yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image {
   margin: 0;
-  left: calc(100% - 60px);
+  left: calc(100% - 50px);
   top: 20px;
   padding: 8px;
   background: white !important;
