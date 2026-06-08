@@ -328,92 +328,145 @@ mark.count {
   line-height: 1.8;
 }
 
-/* Hidden Side Bar  */
+/* --- Variables & Configuration --- */
+:root {
+  --sidebar-width: 300px;
+  --transition-speed: 0.3s;
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+  --primary-color: #222;
+  --white: #ffffff;
+}
 
-/* Desktop Layout */
+/* --- Global States --- */
+.no-scroll {
+  overflow: hidden !important;
+}
+
+/* --- Base Component Styles (Shared) --- */
+.shop-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: var(--z-index-shop-overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.shop-sidebar-overlay.shop-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Desktop Layout (768px and up) --- */
 @media (min-width: 768px) {
   .shop-filters-wrapper {
-    flex: 0 0 25%; /* Sidebar takes 25% width */
+    flex: 0 0 25%;
     max-width: 250px;
   }
+
   .product-loop-wrapper {
     flex: 1;
   }
-  /* Hide the mobile toggle button on desktop if needed */
+
+  /* Hide mobile-only elements */
+  .mobile-filter-trigger,
+  .mobile-sidebar-header,
   .wpc-filters-open-button-container {
-    display: none;
+    display: none !important;
   }
 }
 
+/* --- Mobile Layout (Under 767px) --- */
 @media (max-width: 767px) {
+  /* 1. Layout Adjustments */
   section.shop-section-woo .container {
     grid-template-columns: 1fr !important;
-  }
-}
-
-/* Mobile Sidebar Layout (Under 767px) */
-@media (max-width: 767px) {
-  .shop-filters-wrapper {
-    position: fixed;
-    top: 0;
-    left: -320px;
-    width: 300px;
-    height: 100vh;
-    background: #fff;
-    z-index: 9999;
-    overflow-y: auto;
-    transition: left 0.3s ease;
-    padding: 20px;
-    box-shadow: 2px 0 15px rgba(0, 0, 0, 0.15);
+    display: block; /* Ensure flex doesn't interfere on mobile */
   }
 
-  .shop-filters-wrapper.active {
-    left: 0;
-  }
-
-  .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9998;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.3s ease;
-  }
-
-  .sidebar-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .mobile-sidebar-header {
+  .shop-layout-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  .close-sidebar {
-    border: none;
-    background: none;
-    font-size: 28px;
-    cursor: pointer;
-    line-height: 1;
   }
 
   .product-loop-wrapper {
     width: 100%;
   }
-}
 
-/* Hide mobile controls on desktop */
-@media (min-width: 768px) {
-  .mobile-filter-trigger,
-  .mobile-sidebar-header,
-  .sidebar-overlay {
+  /* 2. Toggle Button Styling */
+  .mobile-filter-trigger {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  /* 3. Off-Canvas Sidebar */
+  .shop-filters-wrapper {
+    position: fixed;
+    top: 0;
+    left: -350px; /* Hidden */
+    width: 300px;
+    height: 100vh;
+    background: #fff;
+    z-index: var(--z-index-shop-sidebar);
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* The class added by JS */
+  .shop-filters-wrapper.shop-active {
+    left: 0;
+  }
+
+  /* 4. Sidebar Header & Close UI */
+  .mobile-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    font-weight: 700;
+  }
+
+  .close-sidebar {
+    background: none;
+    border: none;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 0;
+  }
+
+  .grid-switcher {
     display: none;
+  }
+}
+/* Desktop: Sidebar is normal, overlay is hidden */
+@media (min-width: 768px) {
+  .shop-sidebar-overlay,
+  .mobile-filter-trigger {
+    display: none !important;
+  }
+  .shop-filters-wrapper {
+    flex: 0 0 25%;
+    max-width: 250px;
   }
 }
 

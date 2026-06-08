@@ -40,17 +40,17 @@ do_action('woocommerce_shop_loop_header'); ?>
 <section class="shop-section-woo">
 	<h2 class="shop-header">All Product</h2>
 	<div class="container">
-		<aside class="shop-filters-wrapper">
+		<aside class="shop-filters-wrapper" id="shopSidebar">
 			<div class="mobile-sidebar-header">
 				<span>Filters</span>
-				<button type="button" class="close-sidebar">&times;</button>
+				<button type="button" class="close-sidebar" id="closeShopSidebar">&times;</button>
 			</div>
 			<?php echo do_shortcode('[fe_widget]'); ?>
 		</aside>
 
 		<div class="product-loop-wrapper">
 			<div class="shop-layout-controls">
-				<button type="button" class="mobile-filter-trigger">
+				<button type="button" class="mobile-filter-trigger" id="shopFilterTrigger">
 					<span class="filter-icon">☰</span> Filters
 				</button>
 
@@ -111,7 +111,7 @@ do_action('woocommerce_shop_loop_header'); ?>
 			} ?>
 		</div>
 	</div>
-	<div class="sidebar-overlays"></div>
+	<div class="shop-sidebar-overlay" id="shopSidebarOverlay"></div>
 </section>
 <?php
 /**

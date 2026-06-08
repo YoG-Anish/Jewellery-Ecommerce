@@ -55,20 +55,43 @@ jQuery(document).ready(function ($) {
   }
 });
 
-jQuery(document).ready(function ($) {
-  // Open Sidebar
-  $(".mobile-filter-trigger").on("click", function (e) {
-    e.preventDefault();
-    $(".shop-filters-wrapper").addClass("active");
-    $(".sidebar-overlay").addClass("active");
-    $("body").addClass("sidebar-opened"); // Prevents background scroll
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  // --- SHOP FILTER SIDEBAR LOGIC ---
+  const shopTrigger = document.getElementById("shopFilterTrigger");
+  const shopSidebar = document.getElementById("shopSidebar");
+  const shopOverlay = document.getElementById("shopSidebarOverlay");
+  const shopCloseBtn = document.getElementById("closeShopSidebar");
 
-  // Close Sidebar (via X button or clicking the dark overlay)
-  $(".close-sidebar, .sidebar-overlay").on("click", function (e) {
-    e.preventDefault();
-    $(".shop-filters-wrapper").removeClass("active");
-    $(".sidebar-overlay").removeClass("active");
-    $("body").removeClass("sidebar-opened");
-  });
+  // Debugging: Check if elements are found
+  console.log("Trigger:", shopTrigger);
+  console.log("Sidebar:", shopSidebar);
+  console.log("Overlay:", shopOverlay);
+
+  if (shopTrigger && shopSidebar && shopOverlay) {
+    const openShopSidebar = (e) => {
+      e.preventDefault();
+      console.log("Opening Shop Sidebar");
+      shopSidebar.classList.add("shop-active");
+      shopOverlay.classList.add("shop-active");
+      document.body.classList.add("no-scroll");
+    };
+
+    const closeShopSidebar = () => {
+      console.log("Closing Shop Sidebar");
+      shopSidebar.classList.remove("shop-active");
+      shopOverlay.classList.remove("shop-active");
+      document.body.classList.remove("no-scroll");
+    };
+
+    shopTrigger.addEventListener("click", openShopSidebar);
+    if (shopCloseBtn) shopCloseBtn.addEventListener("click", closeShopSidebar);
+    shopOverlay.addEventListener("click", closeShopSidebar);
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeShopSidebar();
+    });
+  } else {
+    console.error("Shop Sidebar elements not found! Check your HTML IDs.");
+  }
 });
