@@ -37,7 +37,7 @@
     </div>
     <div class="footer-bottom">
         <div class="container footer-bot-container">
-            <p>Web Design by <span class="text-underline " style="color: gold;">Anish Maka</span></p>
+            <p>Web Design by <span class="text-underline " style="color: gold;">Anish Maka</span> & <span class="text-underline " style="color: gold;">Sabin Prajapati</span></p>
         </div>
     </div>
 </footer>

@@ -182,7 +182,6 @@ a {
 .main-nav a:hover::before,
 .main-nav a.active::before {
   width: 100%;
-  padding: 12px 0;
 }
 
 .header-icons {
@@ -576,22 +575,6 @@ a.btn.btn-outline-dark:hover {
     margin: 10px auto;
   }
 }
-section.shop-section-woo {
-  padding: 80px 0;
-}
-
-section.shop-section-woo .container {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  gap: 30px;
-}
-.woocommerce ul.products li.product a img {
-  aspect-ratio: 274/356;
-  margin: 0;
-}
-.woocommerce ul.products li.product .onsale {
-  margin: 0;
-}
 .footer-col ul li a {
   position: relative; /* CRITICAL: This contains the ::after line */
   display: inline-block; /* Ensures the width matches the text precisely */
@@ -620,20 +603,6 @@ section.shop-section-woo .container {
 
 /* Blog Post Styles anish maka */
 .single-post-container {
-    padding: 60px 0;
-}
-.post-title {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-.post-featured-image img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 30px;
-}
-.post-content p {
-    margin-bottom: 20px;
-    line-height: 1.6;
   padding: calc(var(--nav-height) + 60px) 0 60px;
 }
 

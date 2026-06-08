@@ -60,8 +60,6 @@ get_header();
                             </div>
                         </article>
                     <?php endwhile; ?>
-
-                    
                 <?php
                     wp_reset_postdata();
                 else : ?>
@@ -69,17 +67,17 @@ get_header();
                 <?php endif; ?>
             </div>
             <!-- Pagination -->
-                    <div class="blog-pagination">
-                        <?php
-                        echo paginate_links([
-                            'total'   => $blog_query->max_num_pages,
-                            'current' => $paged,
-                            'prev_text' => 'Previous',
-                            'next_text' => 'Next &rarr;',
+            <div class="blog-pagination">
+                <?php
+                echo paginate_links([
+                    'total'   => $blog_query->max_num_pages,
+                    'current' => $paged,
+                    'prev_text' => 'Previous',
+                    'next_text' => 'Next &rarr;',
 
-                        ]);
-                        ?>
-                    </div>
+                ]);
+                ?>
+            </div>
         </div>
     </section>
 </main>
