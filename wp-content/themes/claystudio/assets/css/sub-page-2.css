@@ -38,6 +38,9 @@
   position: relative;
 }
 
+.field-group br {
+  display: none;
+}
 .field-label {
   position: absolute;
   top: 14px;
@@ -113,6 +116,9 @@ select {
 .button-container button span {
   font-size: 16px;
 }
+#file::file-selector-button {
+  display: none;
+}
 
 /* chiffon section  */
 .chiffon-section {
@@ -175,7 +181,7 @@ select {
   letter-spacing: 0.2em;
 }
 
-.btn-outline {
+.video-overlay-content .btn-outline {
   display: inline-block;
   padding: 12px 35px;
   border: 2px solid #8c5364;
@@ -189,7 +195,7 @@ select {
   margin: 0;
 }
 
-.btn-outline:hover {
+.video-overlay-content .btn-outline:hover {
   background-color: #8c5364;
   color: white;
   border-color: #8c5364;
@@ -327,6 +333,10 @@ select {
 .question-contact-section {
   padding: 80px 0;
 }
+.question-contact-section .form-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
 .contact-heading {
   text-align: center;
 }
@@ -343,9 +353,7 @@ select {
   color: rgb(44 52 61 / 70%);
   margin: 0 0 48px;
 }
-.question-contact-section form {
-  max-width: 100%;
-}
+
 .terms-and-privacy-policy {
   text-align: center;
   margin-top: 48px;

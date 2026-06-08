@@ -2,6 +2,7 @@
 
 :root {
   --primary-color: #8f515e;
+  --anouncement-bar: #9b5e6b;
   --heading-color: #2a0002;
   --bg-light: #faf0f9;
   --text-dark: #2c343d;
@@ -14,7 +15,7 @@
 
   /* Font  */
   --main-font: "Jost", sans-serif;
-  --nav-height: 156px;
+  --nav-height: 126px;
 }
 
 * {
@@ -54,7 +55,7 @@ a {
 }
 
 .announcement-bar {
-  background: var(--primary-color, #8f515e);
+  background: var(--anouncement-bar, #9b5e6b);
   color: var(--white, #fff);
   padding: 10px 0;
   font-size: 11.2px;
@@ -144,7 +145,7 @@ a {
 }
 
 .logo img {
-  width: 150px;
+  width: 120px;
 }
 
 .main-nav ul {
@@ -163,9 +164,11 @@ a {
 
   position: relative;
   padding-bottom: 4px;
+  /* Add this to keep text and chevron aligned */
+  display: inline-flex;
+  align-items: center;
 }
-/* Create the underline line */
-.main-nav a::after {
+.main-nav a::before {
   content: "";
   position: absolute;
   width: 0;
@@ -176,13 +179,8 @@ a {
   transition: width 0.3s ease-in-out;
 }
 
-/* Hover effect: Slide width to 100% */
-.main-nav a:hover::after {
-  width: 100%;
-}
-
-/* Active state: Keep width at 100% */
-.main-nav a.active::after {
+.main-nav a:hover::before,
+.main-nav a.active::before {
   width: 100%;
   padding: 12px 0;
 }
@@ -190,7 +188,7 @@ a {
 .header-icons {
   display: flex;
   gap: 15px;
-  color: var(--heading-color);
+  color: var(--white);
 }
 
 .transparent-header .header-icons {
@@ -198,7 +196,7 @@ a {
 }
 .site-header.header-scrolled .header-icons,
 .site-header:hover .header-icons {
-  color: var(--heading-color);
+  color: var(--white);
 }
 
 .icon-link {
@@ -213,8 +211,8 @@ a {
   position: absolute;
   top: -8px;
   right: -10px;
-  background: var(--heading-color);
-  color: var(--white);
+  background: var(--white);
+  color: var(--heading-color);
   font-size: 10px;
   padding: 2px 6px;
   border-radius: 50%;
@@ -226,8 +224,8 @@ a {
 }
 .site-header.header-scrolled .cart-count,
 .site-header:hover .cart-count {
-  background: var(--heading-color);
-  color: var(--white);
+  background: var(--white);
+  color: var(--heading-color);
 }
 
 /* Hero Section */
@@ -619,6 +617,7 @@ section.shop-section-woo .container {
 
 /* Blog Post Styles anish maka */
 .single-post-container {
+<<<<<<< HEAD
     padding: 60px 0;
 }
 .post-title {
@@ -633,4 +632,203 @@ section.shop-section-woo .container {
 .post-content p {
     margin-bottom: 20px;
     line-height: 1.6;
+=======
+  padding: calc(var(--nav-height) + 60px) 0 60px;
+}
+.post-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+.post-featured-image img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+.post-content p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Force the split layout for your blocks */
+.splide__slide .wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.splide__slide .hero-img-left {
+  /* Style your images here */
+  background-size: cover;
+  height: 100vh;
+}
+
+/* Sub Menu Dropdown  */
+
+/* Parent LI: Must be relative so the sub-menu aligns to it */
+.menu-item-has-children {
+  position: relative;
+  display: inline-block; /* Or use flex if in a header */
+}
+
+/* THE DROPDOWN (Hidden by default) */
+.sub-menu {
+  position: absolute;
+  top: 100%; /* Sits right below the parent */
+  left: -50%;
+  min-width: 220px;
+  background: #ffffff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+
+  /* Animation settings */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: all 0.3s ease;
+}
+
+/* SHOW DROPDOWN ON HOVER */
+.menu-item-has-children:hover > .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(12px);
+}
+.sub-menu {
+  flex-direction: column;
+  gap: 0 !important;
+  padding: 10px;
+}
+/* Update your existing base style to include 'position: relative' */
+.sub-menu li a {
+  display: inline-block; /* Change from block to inline-block so line only spans text width */
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #999999;
+  white-space: nowrap;
+  letter-spacing: 0;
+  position: relative; /* Necessary for the animation */
+}
+
+/* The hidden line */
+.sub-menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 10px; /* Vertical position of the line */
+  left: 20px; /* Matches your horizontal padding */
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+/* The hover state */
+.sub-menu li a:hover {
+  color: var(--primary-color);
+}
+
+.sub-menu li a:hover::after {
+  width: calc(100% - 40px); /* 100% minus the left and right padding */
+}
+
+/* Remove border from last item */
+.sub-menu li:last-child a {
+  border-bottom: none;
+}
+
+.menu-item-has-children > a::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid currentColor; /* Matches the text color */
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg); /* Rotates the L-shape to look like a chevron */
+  margin-left: 10px;
+  margin-bottom: 3px; /* Adjust alignment */
+  transition: transform 0.3s ease; /* Bonus: makes it smooth if you want to rotate it on hover */
+}
+
+.xoo-wsc-sc-bki {
+  font-size: 22px;
+  color: var(--white);
+}
+.xoo-wsc-sc-count {
+  font-size: 10px !important;
+}
+.transparent-header .xoo-wsc-sc-bki {
+  color: var(--white);
+}
+
+.transparent-header .xoo-wsc-sc-count {
+  background: var(--white);
+  color: var(--heading-color);
+}
+.site-header.header-scrolled .xoo-wsc-sc-bki,
+.site-header:hover .xoo-wsc-sc-bki {
+  color: var(--white);
+}
+.xoo-wsc-sc-bki:hover {
+  color: var(--white) !important;
+}
+
+.site-header.header-scrolled .xoo-wsc-sc-count,
+.site-header:hover .xoo-wsc-sc-count {
+  background: var(--heading-color);
+  color: var(--white);
+}
+
+section.shop-section-woo {
+  padding: 80px 0;
+}
+
+section.shop-section-woo .container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: 30px;
+}
+.woocommerce ul.products li.product a img {
+  aspect-ratio: 274/356;
+  margin: 0;
+}
+.woocommerce ul.products li.product .onsale {
+  margin: 0;
+}
+select.orderby {
+  border: 0;
+  border-bottom: 1px solid #c6c6c6;
+  padding: 6px;
+  color: #999999;
+}
+select.orderby:focus {
+  outline: none;
+}
+
+.widget-title.wpc-filter-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.widget-title.wpc-filter-title {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  font-size: 20px;
+  margin-bottom: 24px;
+}
+
+.wpc-filters-main-wrap li.wpc-term-item label span.wpc-term-swatch {
+  min-width: 16px !important;
+  min-height: 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 50%;
+}
+
+span.wpc-term-swatch-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+>>>>>>> origin/backend-new
 }

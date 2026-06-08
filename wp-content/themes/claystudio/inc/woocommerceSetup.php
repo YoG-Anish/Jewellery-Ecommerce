@@ -76,6 +76,7 @@ function get_new_arrivals_products()
 }
 add_shortcode('new_arrivals', 'get_new_arrivals_products');
 
+<<<<<<< HEAD
 // Force search results to always use search.php, never the shop page
 add_filter('template_include', 'force_search_template', 99);
 function force_search_template($template)
@@ -86,3 +87,23 @@ function force_search_template($template)
     }
     return $template;
 }
+=======
+
+// AJAX Handler to fetch current count
+add_action('wp_ajax_get_wishlist_count', 'get_wishlist_count_callback');
+add_action('wp_ajax_nopriv_get_wishlist_count', 'get_wishlist_count_callback');
+
+function get_wishlist_count_callback() {
+    // Return the current wishlist count
+    echo yith_wcwl_count_products();
+    wp_die();
+}
+
+// Localize the AJAX URL so JS can find it
+add_action('wp_enqueue_scripts', 'localize_wishlist_script');
+function localize_wishlist_script() {
+    wp_localize_script('claystudio-js', 'wishlist_ajax', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
+}
+>>>>>>> origin/backend-new

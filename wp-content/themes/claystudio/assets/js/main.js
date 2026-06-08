@@ -138,3 +138,24 @@ document.addEventListener('click', function(e) {
         qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
     }
 });
+<<<<<<< HEAD
+=======
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Add a listener that logs EVERYTHING to the console
+    jQuery(document).on('added_to_wishlist removed_from_wishlist', function(event, data) {
+        console.log('YITH Wishlist Event Triggered:', event.type);
+        
+        // Fetch new count
+        jQuery.ajax({
+            url: wishlist_ajax.ajax_url,
+            type: 'POST',
+            data: { action: 'get_wishlist_count' },
+            success: function(response) {
+                console.log('New Count Received:', response);
+                jQuery('.wishlist-count-val').text(response);
+            }
+        });
+    });
+});
+>>>>>>> origin/backend-new

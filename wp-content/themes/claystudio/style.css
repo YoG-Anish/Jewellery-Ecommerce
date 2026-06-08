@@ -57,6 +57,34 @@
   padding: calc(var(--nav-height) + 30px) 0 30px;
 }
 
+.wishlist-icon-link {
+  position: relative;
+  display: inline-block;
+  color: currentColor;
+  text-decoration: none;
+}
+
+.wishlist-count {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: #000; /* You can change this to your theme color */
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 50%;
+  min-width: 14px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Aditional Css */
+
+.shop-all-collection-section {
+  padding: calc(var(--nav-height) + 30px) 0 30px;
+}
+
 li.product-category.product a img {
   aspect-ratio: 1 / 1 !important;
 }
@@ -286,6 +314,20 @@ mark.count {
 
 .woocommerce ul.products li.product:hover a img {
   transform: scale(1);
+}
+.shop-all-collection-section .woocommerce ul.products li.product a img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.shop-all-collection-section .woocommerce ul.products li.product:hover a img {
+  transform: scale(1.08);
 }
 
 .woocommerce ul.products li.product a {
@@ -635,7 +677,7 @@ a.button.product_type_simple {
 
 /* 2. Image settings + Transition for the darken effect */
 .woocommerce ul.products li.product a img {
-  aspect-ratio: 274 / 356 !important;
+  aspect-ratio: 274 / 356;
   margin: 0;
   width: 100%;
   display: block;
@@ -652,8 +694,8 @@ a.button.product_type_simple {
 a.button.product_type_simple {
   position: absolute;
   top: calc(129.93cqw - 60px) !important;
-  left: 5%;
-  width: 90% !important;
+  left: 20px;
+  width: calc(100% - 40px) !important;
   z-index: 10;
 
   /* Hiding the button initially */
@@ -749,4 +791,71 @@ a.woocommerce-LoopProduct-link.woocommerce-loop-product__link {
 .no-arrivals-container .btn {
   margin: 0;
   min-width: 200px;
+
+.wpc-term-item-content-wrapper input {
+  width: auto !important;
 }
+
+/* Wishlist  */
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image {
+  margin: 0;
+  left: calc(100% - 50px);
+  top: 20px;
+  padding: 8px;
+  background: white !important;
+  border-radius: 50% !important;
+
+  /* Hiding the button initially */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease,
+    transform 0.4s ease;
+  transform: translateX(60px);
+}
+.woocommerce
+  ul.products
+  li.product:hover
+  .yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0px);
+}
+.yith-add-to-wishlist-button-block {
+  margin: 0;
+}
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button--icon-button:is(
+    button
+  )
+  svg.yith-wcwl-add-to-wishlist-button-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--heading-color) !important;
+}
+
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image:hover {
+  background: var(--primary-color) !important;
+}
+
+.yith-wcwl-add-to-wishlist-button.yith-wcwl-add-to-wishlist-button-over-image:hover
+  svg.yith-wcwl-add-to-wishlist-button-icon {
+  color: white !important;
+}
+
+input#wp-comment-cookies-consent,
+.form-submit input {
+  width: auto;
+  cursor: pointer;
+}
+
+input.wpcf7-form-control.wpcf7-submit.has-spinner.btn-primary {
+  width: auto;
+}
+
+form.woocommerce-ordering .orderby:focus,
+form.woocommerce-ordering .orderby:active {
+  box-shadow: none !important;
+}
+
+ }
