@@ -39,7 +39,7 @@ do_action('woocommerce_before_main_content');
 do_action('woocommerce_shop_loop_header'); ?>
 <section class="shop-section-woo">
 	<h2 class="shop-header">All Product</h2>
-	<div class="container">
+	<div class="container container-1600">
 		<aside class="shop-filters-wrapper" id="shopSidebar">
 			<div class="mobile-sidebar-header">
 				<span>Filters</span>

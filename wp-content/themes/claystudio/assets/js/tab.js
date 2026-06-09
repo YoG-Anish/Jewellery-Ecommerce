@@ -60,28 +60,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const shopOverlay = document.getElementById("shopSidebarOverlay");
   const shopCloseBtn = document.getElementById("closeShopSidebar");
 
-  if (shopTrigger && shopSidebar && shopOverlay) {
-    const openShopSidebar = (e) => {
-      e.preventDefault();
-      shopSidebar.classList.add("shop-active");
-      shopOverlay.classList.add("shop-active");
-      document.body.classList.add("no-scroll");
-      console.log("Shop sidebar opened");
-    };
+  const openShopSidebar = (e) => {
+    e.preventDefault();
+    shopSidebar.classList.add("shop-active");
+    shopOverlay.classList.add("shop-active");
+    document.body.classList.add("no-scroll"); // Stops the background page from scrolling
+  };
 
-    const closeShopSidebar = () => {
-      shopSidebar.classList.remove("shop-active");
-      shopOverlay.classList.remove("shop-active");
-      document.body.classList.remove("no-scroll");
-      console.log("Shop sidebar closed");
-    };
+  const closeShopSidebar = () => {
+    shopSidebar.classList.remove("shop-active");
+    shopOverlay.classList.remove("shop-active");
+    document.body.classList.remove("no-scroll");
+  };
 
-    shopTrigger.addEventListener("click", openShopSidebar);
-    if (shopCloseBtn) shopCloseBtn.addEventListener("click", closeShopSidebar);
-    shopOverlay.addEventListener("click", closeShopSidebar);
+  if (shopTrigger) shopTrigger.addEventListener("click", openShopSidebar);
+  if (shopCloseBtn) shopCloseBtn.addEventListener("click", closeShopSidebar);
+  if (shopOverlay) shopOverlay.addEventListener("click", closeShopSidebar);
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeShopSidebar();
-    });
-  }
+  // Close on ESC key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeShopSidebar();
+  });
 });
