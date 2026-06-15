@@ -69,3 +69,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Target only the sidebar/mobile navigation
+  const sidebarLinks = document.querySelectorAll(
+    ".sidebar-nav .menu-item-has-children > a",
+  );
+
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      // Check if we are in a mobile/sidebar view
+      // You can adjust the 1024px to match your mobile breakpoint
+      if (window.innerWidth <= 1024) {
+        e.preventDefault(); // Stop the link from navigating
+
+        const parentLi = this.parentElement;
+
+        // Toggle the 'is-open' class
+        parentLi.classList.toggle("is-open");
+
+        // Optional: Close other open menus (Accordion style)
+        sidebarLinks.forEach((otherLink) => {
+          if (otherLink !== link) {
+            otherLink.parentElement.classList.remove("is-open");
+          }
+        });
+      }
+    });
+  });
+});

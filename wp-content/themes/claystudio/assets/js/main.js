@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // --- 1. SETUP VARIATION SLIDER (Ticker Style) ---
-  const variationList = document.querySelector("#variation-slider .splide__list");
+  const variationList = document.querySelector(
+    "#variation-slider .splide__list",
+  );
   if (variationList) {
     const originalItems = variationList.innerHTML;
     for (let i = 0; i < 10; i++) {
@@ -52,11 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (progressWrap && progressPath) {
     const pathLength = progressPath.getTotalLength();
 
-    progressPath.style.transition = progressPath.style.WebkitTransition = "none";
+    progressPath.style.transition = progressPath.style.WebkitTransition =
+      "none";
     progressPath.style.strokeDasharray = pathLength + " " + pathLength;
     progressPath.style.strokeDashoffset = pathLength;
     progressPath.getBoundingClientRect();
-    progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
+    progressPath.style.transition = progressPath.style.WebkitTransition =
+      "stroke-dashoffset 10ms linear";
 
     const updateProgress = function () {
       const scroll = window.scrollY;
@@ -111,48 +115,68 @@ if (header) {
 }
 
 // --- 5. QUANTITY PLUS/MINUS BUTTONS ---
-document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('plus') || e.target.classList.contains('minus')) {
-        const qtyInput = e.target.parentElement.querySelector('.qty');
-        if (!qtyInput) return;
+document.addEventListener("click", function (e) {
+  if (
+    e.target.classList.contains("plus") ||
+    e.target.classList.contains("minus")
+  ) {
+    const qtyInput = e.target.parentElement.querySelector(".qty");
+    if (!qtyInput) return;
 
-        let val = parseFloat(qtyInput.value);
-        let max = parseFloat(qtyInput.getAttribute('max'));
-        let min = parseFloat(qtyInput.getAttribute('min'));
-        let step = parseFloat(qtyInput.getAttribute('step'));
+    let val = parseFloat(qtyInput.value);
+    let max = parseFloat(qtyInput.getAttribute("max"));
+    let min = parseFloat(qtyInput.getAttribute("min"));
+    let step = parseFloat(qtyInput.getAttribute("step"));
 
-        if (e.target.classList.contains('plus')) {
-            if (max && (max <= val)) {
-                qtyInput.value = max;
-            } else {
-                qtyInput.value = val + step;
-            }
-        } else {
-            if (min && (min >= val)) {
-                qtyInput.value = min;
-            } else if (val > 0) {
-                qtyInput.value = val - step;
-            }
-        }
-        
-        qtyInput.dispatchEvent(new Event('change', { bubbles: true }));
+    if (e.target.classList.contains("plus")) {
+      if (max && max <= val) {
+        qtyInput.value = max;
+      } else {
+        qtyInput.value = val + step;
+      }
+    } else {
+      if (min && min >= val) {
+        qtyInput.value = min;
+      } else if (val > 0) {
+        qtyInput.value = val - step;
+      }
     }
+
+    qtyInput.dispatchEvent(new Event("change", { bubbles: true }));
+  }
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Add a listener that logs EVERYTHING to the console
-    jQuery(document).on('added_to_wishlist removed_from_wishlist', function(event, data) {
-        console.log('YITH Wishlist Event Triggered:', event.type);
-        
-        // Fetch new count
-        jQuery.ajax({
-            url: wishlist_ajax.ajax_url,
-            type: 'POST',
-            data: { action: 'get_wishlist_count' },
-            success: function(response) {
-                console.log('New Count Received:', response);
-                jQuery('.wishlist-count-val').text(response);
-            }
-        });
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  // Add a listener that logs EVERYTHING to the console
+  jQuery(document).on(
+    "added_to_wishlist removed_from_wishlist",
+    function (event, data) {
+      console.log("YITH Wishlist Event Triggered:", event.type);
+
+      // Fetch new count
+      jQuery.ajax({
+        url: wishlist_ajax.ajax_url,
+        type: "POST",
+        data: { action: "get_wishlist_count" },
+        success: function (response) {
+          console.log("New Count Received:", response);
+          jQuery(".wishlist-count-val").text(response);
+        },
+      });
+    },
+  );
+});
+
+// For masonry gallery page
+
+var grid = document.querySelector(".masonry");
+
+// Initialize Masonry after images are loaded
+imagesLoaded(grid, function () {
+  new Masonry(grid, {
+    itemSelector: ".item",
+    columnWidth: ".item",
+    percentPosition: true,
+    gutter: 15, // Space between items
+  });
 });
